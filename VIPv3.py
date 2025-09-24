@@ -102,17 +102,16 @@ if "notif_badge_cleared" not in st.session_state:
     st.session_state.notif_badge_cleared = False
 
 # =====================
-#   CONSTANTS / PATHS
+# CONSTANTS / PATHS
 # =====================
-ROLE_OPTIONS = ["For-Profit (Client)", "Non-Profit", "Venue", "Vendor"]
-IMG_WIDTH = 600
 from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
-ASSETS = BASE_DIR / "assets"
+ROLE_OPTIONS = ["For-Profit (Client)", "Non-Profit", "Venue", "Vendor"]
+IMG_WIDTH = 600
 
-LOGO_PATH = ASSETS / "logo.png"  # if you have one
-DATA_PATH = ASSETS / "marketplace_clean_numeric.csv"  # if you have one
+ROOT = Path(__file__).resolve().parent
+LOGO_PATH = ROOT / "assets" / "logo.png"
+DATA_PATH = ROOT / "data" / "marketplace_clean_numeric.csv"
 
 
 # =====================
@@ -806,3 +805,4 @@ if st.session_state.get("_pending_nav"):
 
 # === Painéis flutuantes (somente suporte; sino não abre nada) ===
 render_help_panel()
+
