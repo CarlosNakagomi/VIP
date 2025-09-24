@@ -106,8 +106,14 @@ if "notif_badge_cleared" not in st.session_state:
 # =====================
 ROLE_OPTIONS = ["For-Profit (Client)", "Non-Profit", "Venue", "Vendor"]
 IMG_WIDTH = 600
-LOGO_PATH = r"C:\Users\carlo\OneDrive\FreeFuse\Venue Intelligence Platform Initiative\logo.png"
-DATA_PATH = r"C:\Users\carlo\OneDrive\FreeFuse\Venue Intelligence Platform Initiative\marketplace_clean_numeric.csv"
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+ASSETS = BASE_DIR / "assets"
+
+LOGO_PATH = ASSETS / "logo.png"  # if you have one
+DATA_PATH = ASSETS / "marketplace_clean_numeric.csv"  # if you have one
+
 
 # =====================
 #        STYLES
