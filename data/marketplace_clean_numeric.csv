@@ -1,0 +1,1001 @@
+type,name,category,city,capacity,price_range,rating,contact_email,price
+Vendor,Spectrum 22,Hotel,Vancouver,42,$,3.1,vendor22@example.com,50
+Vendor,Helix 238,Catering,Los Angeles,75,$,3.0,vendor238@example.com,50
+Vendor,Stratus 241,Conference Center,Vancouver,74,$$,3.2,vendor241@example.com,150
+Vendor,Vertex 161,AV,Toronto,88,$$,5.0,vendor161@example.com,150
+Venue,Harbor 412,Catering,Boston,287,$$,3.7,venue412@example.com,150
+Vendor,Radiant 179,Outdoor,Chicago,25,$$$$,4.8,vendor179@example.com,500
+Vendor,Nova 127,Theater,New York,14,$$,3.6,vendor127@example.com,150
+Vendor,Nova 14,Outdoor,Toronto,73,$$$$,4.1,vendor14@example.com,500
+Vendor,Lynx 360,Hotel,Los Angeles,99,$$,3.6,vendor360@example.com,150
+Venue,Cascade 137,Security,Los Angeles,1890,$$$,4.8,venue137@example.com,300
+Vendor,Helix 312,Photography,Boston,53,$$$$,4.0,vendor312@example.com,500
+Venue,Echo 77,Security,New York,824,$$$$,4.9,venue77@example.com,500
+Vendor,Lyra 137,Photography,Boston,46,$,3.8,vendor137@example.com,50
+Vendor,Phoenix 474,Hotel,Toronto,24,$$$$,3.4,vendor474@example.com,500
+Vendor,Stratus 439,Community Hall,Vancouver,63,$,4.6,vendor439@example.com,50
+Vendor,Comet 400,Hotel,Chicago,96,$,3.4,vendor400@example.com,50
+Venue,Vertex 281,Hotel,Boston,1685,$$$$,4.5,venue281@example.com,500
+Vendor,Nimbus 384,Community Hall,New York,56,$,4.2,vendor384@example.com,50
+Vendor,Helix 262,Hotel,Chicago,30,$$$$,5.0,vendor262@example.com,500
+Venue,Oasis 320,Photography,Los Angeles,1486,$$$,4.2,venue320@example.com,300
+Vendor,Echo 50,Catering,Toronto,92,$,3.1,vendor50@example.com,50
+Venue,Summit 175,Decoration,New York,848,$$$,4.2,venue175@example.com,300
+Venue,Vertex 372,Hotel,Los Angeles,766,$$$$,3.1,venue372@example.com,500
+Vendor,Nova 28,Catering,Boston,37,$$$$,3.1,vendor28@example.com,500
+Venue,Harbor 211,Community Hall,Vancouver,1778,$$,4.3,venue211@example.com,150
+Venue,Vertex 236,Security,Los Angeles,1926,$$$$,4.7,venue236@example.com,500
+Venue,Harbor 102,Hotel,New York,727,$$$,3.7,venue102@example.com,300
+Vendor,Lyra 487,Theater,Toronto,41,$$$,3.2,vendor487@example.com,300
+Vendor,Lynx 403,Security,Boston,58,$,4.3,vendor403@example.com,50
+Vendor,Helix 448,Hotel,Seattle,62,$,3.9,vendor448@example.com,50
+Venue,Echo 347,Hotel,Boston,1399,$,4.6,venue347@example.com,50
+Venue,Horizon 140,Hotel,New York,908,$$,4.9,venue140@example.com,150
+Vendor,Echo 122,Decoration,Boston,52,$$$,4.6,vendor122@example.com,300
+Venue,Momentum 500,Photography,New York,1919,$$,3.8,venue500@example.com,150
+Venue,Galaxy 371,Decoration,Los Angeles,1084,$$$,3.6,venue371@example.com,300
+Venue,Cascade 199,Decoration,Los Angeles,169,$$$$,4.7,venue199@example.com,500
+Vendor,Orion 188,AV,Toronto,68,$$,5.0,vendor188@example.com,150
+Vendor,Comet 85,Photography,New York,40,$$,4.4,vendor85@example.com,150
+Vendor,Quantum 402,Conference Center,Toronto,19,$,4.2,vendor402@example.com,50
+Venue,Harbor 60,Security,Los Angeles,1151,$$,4.5,venue60@example.com,150
+Venue,Vista 329,Theater,Toronto,404,$$$,3.6,venue329@example.com,300
+Venue,Solstice 97,AV,Boston,481,$,4.1,venue97@example.com,50
+Venue,Nebula 313,AV,Vancouver,1760,$$$$,3.1,venue313@example.com,500
+Vendor,Echo 475,Outdoor,Seattle,30,$,3.3,vendor475@example.com,50
+Venue,Galaxy 300,Photography,Seattle,1114,$,3.7,venue300@example.com,50
+Venue,Mirage 278,Outdoor,Los Angeles,1052,$$$$,3.4,venue278@example.com,500
+Vendor,Nimbus 425,Outdoor,New York,98,$$$$,4.0,vendor425@example.com,500
+Vendor,Helix 102,Security,Toronto,71,$$,4.6,vendor102@example.com,150
+Venue,Nebula 440,Community Hall,Los Angeles,1384,$,5.0,venue440@example.com,50
+Vendor,Vega 338,AV,New York,21,$$,3.7,vendor338@example.com,150
+Vendor,Lumen 71,Outdoor,Vancouver,61,$$$,3.8,vendor71@example.com,300
+Vendor,Vega 380,Theater,Boston,20,$$$$,3.9,vendor380@example.com,500
+Venue,Harbor 262,Theater,Toronto,988,$$,3.3,venue262@example.com,150
+Vendor,Astra 79,Outdoor,Boston,66,$$$,4.6,vendor79@example.com,300
+Venue,Vertex 24,Hotel,Seattle,1329,$$$$,4.5,venue24@example.com,500
+Venue,Vista 31,Security,Toronto,1269,$,4.2,venue31@example.com,50
+Vendor,Lynx 118,Security,Toronto,25,$$$$,3.1,vendor118@example.com,500
+Venue,Harbor 11,Photography,Boston,1761,$,4.0,venue11@example.com,50
+Venue,Harbor 222,AV,Vancouver,1390,$$,4.1,venue222@example.com,150
+Vendor,Cosmos 321,Outdoor,Vancouver,86,$,4.8,vendor321@example.com,50
+Venue,Mirage 297,Security,Chicago,1650,$$,4.8,venue297@example.com,150
+Venue,Echo 55,AV,Boston,1143,$,4.9,venue55@example.com,50
+Vendor,Nimbus 43,Photography,Boston,45,$$$,4.3,vendor43@example.com,300
+Venue,Harbor 210,Community Hall,Seattle,176,$,3.6,venue210@example.com,50
+Vendor,Lynx 105,Theater,Vancouver,45,$$,3.4,vendor105@example.com,150
+Vendor,Lumen 193,Outdoor,Los Angeles,50,$,3.6,vendor193@example.com,50
+Vendor,Helix 163,Community Hall,New York,94,$$,4.0,vendor163@example.com,150
+Vendor,Lumen 367,Security,New York,18,$$,4.2,vendor367@example.com,150
+Venue,Eclipse 71,Community Hall,Vancouver,1027,$,3.8,venue71@example.com,50
+Vendor,Orion 44,Catering,Seattle,94,$$,3.2,vendor44@example.com,150
+Venue,Eclipse 108,Catering,Vancouver,694,$$$$,3.8,venue108@example.com,500
+Venue,Echo 494,Catering,Los Angeles,1751,$$$$,4.1,venue494@example.com,500
+Vendor,Pulse 91,Community Hall,Vancouver,26,$$$,4.9,vendor91@example.com,300
+Vendor,Lyra 242,Conference Center,New York,84,$,3.2,vendor242@example.com,50
+Venue,Harbor 293,Community Hall,Seattle,339,$$$,3.7,venue293@example.com,300
+Venue,Odyssey 290,AV,Toronto,1992,$$$,4.3,venue290@example.com,300
+Vendor,Orion 153,Decoration,Chicago,44,$$,3.1,vendor153@example.com,150
+Venue,Oasis 40,Outdoor,Chicago,1407,$,3.2,venue40@example.com,50
+Vendor,Phoenix 90,Hotel,Los Angeles,86,$,4.2,vendor90@example.com,50
+Venue,Oasis 308,Security,Boston,1649,$$,4.8,venue308@example.com,150
+Vendor,Cosmos 180,Hotel,Chicago,51,$,4.1,vendor180@example.com,50
+Venue,Mirage 67,AV,Seattle,361,$$,4.7,venue67@example.com,150
+Venue,Echo 276,AV,Toronto,161,$$,3.6,venue276@example.com,150
+Venue,Aurora 68,AV,Boston,1136,$$$$,3.4,venue68@example.com,500
+Venue,Serenity 319,AV,Chicago,533,$$,4.7,venue319@example.com,150
+Vendor,Comet 49,Hotel,Seattle,67,$$,3.1,vendor49@example.com,150
+Vendor,Stratus 499,Photography,Los Angeles,59,$,4.0,vendor499@example.com,50
+Vendor,Nova 215,Photography,Vancouver,43,$$$$,4.6,vendor215@example.com,500
+Vendor,Cosmos 254,Security,Toronto,39,$$,4.5,vendor254@example.com,150
+Venue,Nebula 328,Photography,Seattle,1330,$$$,3.7,venue328@example.com,300
+Venue,Harbor 383,Outdoor,Los Angeles,611,$$$$,4.7,venue383@example.com,500
+Venue,Eclipse 452,Community Hall,Vancouver,898,$,4.5,venue452@example.com,50
+Vendor,Spectrum 23,Security,New York,97,$$$,4.4,vendor23@example.com,300
+Venue,Mirage 219,Photography,New York,1399,$,4.3,venue219@example.com,50
+Vendor,Stratus 288,Community Hall,Vancouver,94,$$$,3.6,vendor288@example.com,300
+Venue,Solstice 437,Community Hall,New York,241,$$$$,3.5,venue437@example.com,500
+Vendor,Comet 265,Outdoor,Boston,37,$$,4.2,vendor265@example.com,150
+Venue,Odyssey 89,Community Hall,New York,1245,$,4.4,venue89@example.com,50
+Venue,Vertex 64,Security,Los Angeles,1054,$$$$,4.7,venue64@example.com,500
+Vendor,Phoenix 327,Decoration,Toronto,12,$$$$,4.0,vendor327@example.com,500
+Vendor,Comet 217,Decoration,Toronto,64,$$$,3.7,vendor217@example.com,300
+Venue,Zenith 352,Catering,New York,369,$$$$,3.5,venue352@example.com,500
+Vendor,Lynx 437,Conference Center,New York,29,$$,4.0,vendor437@example.com,150
+Venue,Zenith 257,Outdoor,Chicago,1074,$$$$,3.5,venue257@example.com,500
+Vendor,Comet 136,Conference Center,Toronto,76,$$,3.3,vendor136@example.com,150
+Vendor,Orion 145,Decoration,Seattle,59,$,3.1,vendor145@example.com,50
+Vendor,Lyra 55,AV,Chicago,96,$,3.6,vendor55@example.com,50
+Vendor,Vertex 460,Outdoor,Vancouver,11,$,4.0,vendor460@example.com,50
+Venue,Harbor 169,Outdoor,Toronto,164,$,4.6,venue169@example.com,50
+Vendor,Astra 418,Hotel,Los Angeles,84,$,4.0,vendor418@example.com,50
+Vendor,Lumen 29,Catering,Toronto,73,$$,4.1,vendor29@example.com,150
+Vendor,Pulse 324,Catering,Los Angeles,40,$$$,4.0,vendor324@example.com,300
+Vendor,Stratus 486,Security,Los Angeles,12,$,3.2,vendor486@example.com,50
+Vendor,Vertex 317,Conference Center,Seattle,79,$$$$,3.2,vendor317@example.com,500
+Venue,Eclipse 87,Security,Seattle,405,$$,3.3,venue87@example.com,150
+Venue,Mirage 433,Community Hall,Boston,161,$$$,4.8,venue433@example.com,300
+Venue,Nebula 185,Community Hall,Chicago,958,$$,4.9,venue185@example.com,150
+Vendor,Atlas 479,Decoration,Seattle,15,$$$$,3.7,vendor479@example.com,500
+Vendor,Vertex 35,AV,Toronto,78,$$$,4.3,vendor35@example.com,300
+Venue,Serenity 295,Community Hall,Boston,249,$$,4.9,venue295@example.com,150
+Vendor,Comet 393,Security,Los Angeles,34,$$,4.6,vendor393@example.com,150
+Venue,Serenity 426,Outdoor,Vancouver,195,$$$,4.5,venue426@example.com,300
+Vendor,Radiant 214,Photography,Vancouver,66,$$$,4.9,vendor214@example.com,300
+Venue,Serenity 261,Outdoor,Seattle,1403,$$,4.3,venue261@example.com,150
+Venue,Vista 238,Catering,New York,166,$,4.9,venue238@example.com,50
+Vendor,Atlas 60,AV,Los Angeles,42,$$,3.2,vendor60@example.com,150
+Vendor,Echo 84,Hotel,Boston,28,$,4.6,vendor84@example.com,50
+Venue,Odyssey 446,Photography,Vancouver,1075,$,4.6,venue446@example.com,50
+Vendor,Nimbus 368,Outdoor,Chicago,22,$$$,3.0,vendor368@example.com,300
+Vendor,Helix 301,AV,New York,28,$$$,3.6,vendor301@example.com,300
+Vendor,Nimbus 100,Outdoor,Chicago,24,$$,4.6,vendor100@example.com,150
+Vendor,Helix 350,Community Hall,Boston,96,$$$,3.4,vendor350@example.com,300
+Venue,Odyssey 266,AV,Los Angeles,1463,$,3.6,venue266@example.com,50
+Vendor,Spectrum 496,Catering,Los Angeles,22,$$,3.5,vendor496@example.com,150
+Vendor,Spectrum 30,Theater,Toronto,64,$$$,4.2,vendor30@example.com,300
+Venue,Harbor 56,Outdoor,Chicago,911,$$$,4.8,venue56@example.com,300
+Venue,Mirage 121,Photography,Toronto,1896,$$,4.5,venue121@example.com,150
+Venue,Galaxy 216,AV,Toronto,1618,$$,3.9,venue216@example.com,150
+Venue,Zenith 26,Outdoor,Los Angeles,985,$$$,3.4,venue26@example.com,300
+Venue,Horizon 73,Community Hall,Los Angeles,1907,$$$$,4.8,venue73@example.com,500
+Venue,Galaxy 45,Hotel,Chicago,1668,$$,4.5,venue45@example.com,150
+Venue,Summit 248,AV,Seattle,333,$$,4.2,venue248@example.com,150
+Vendor,Helix 222,Conference Center,Chicago,96,$$$$,3.2,vendor222@example.com,500
+Venue,Summit 282,Decoration,Chicago,613,$$$,3.8,venue282@example.com,300
+Vendor,Atlas 394,Photography,Chicago,10,$$,3.3,vendor394@example.com,150
+Vendor,Spectrum 415,Community Hall,Los Angeles,49,$$,4.8,vendor415@example.com,150
+Vendor,Nova 311,Security,Vancouver,89,$$,3.6,vendor311@example.com,150
+Venue,Vertex 245,Catering,New York,1010,$$$$,4.7,venue245@example.com,500
+Vendor,Quantum 323,Theater,Los Angeles,13,$$$,4.5,vendor323@example.com,300
+Venue,Eclipse 322,Outdoor,Chicago,532,$$,4.9,venue322@example.com,150
+Vendor,Nova 144,AV,Chicago,73,$$$$,4.0,vendor144@example.com,500
+Venue,Crown 159,Photography,New York,696,$$$,3.7,venue159@example.com,300
+Vendor,Lyra 478,Hotel,Boston,71,$,4.6,vendor478@example.com,50
+Venue,Galaxy 430,Theater,Toronto,1264,$$$,4.1,venue430@example.com,300
+Vendor,Vertex 442,Catering,New York,45,$$$,3.2,vendor442@example.com,300
+Venue,Oasis 463,Outdoor,Toronto,1438,$$,3.5,venue463@example.com,150
+Venue,Momentum 310,Hotel,Toronto,1694,$,4.1,venue310@example.com,50
+Vendor,Helix 198,Outdoor,Chicago,72,$$$$,3.7,vendor198@example.com,500
+Venue,Harbor 61,Photography,Toronto,390,$,3.5,venue61@example.com,50
+Vendor,Helix 385,Photography,Vancouver,13,$$$$,3.8,vendor385@example.com,500
+Vendor,Stratus 96,Hotel,Seattle,87,$$$,3.3,vendor96@example.com,300
+Vendor,Stratus 268,Hotel,Chicago,58,$$,3.7,vendor268@example.com,150
+Vendor,Nimbus 150,AV,Seattle,33,$$$$,4.8,vendor150@example.com,500
+Vendor,Phoenix 151,Conference Center,Seattle,85,$,3.5,vendor151@example.com,50
+Vendor,Echo 366,Community Hall,Toronto,97,$$$$,3.1,vendor366@example.com,500
+Vendor,Pulse 169,Catering,New York,16,$,3.3,vendor169@example.com,50
+Venue,Momentum 299,Decoration,Boston,1263,$$$$,4.4,venue299@example.com,500
+Vendor,Atlas 190,Community Hall,Toronto,50,$$$,4.4,vendor190@example.com,300
+Venue,Momentum 315,Outdoor,New York,146,$$$$,4.1,venue315@example.com,500
+Venue,Harbor 311,Security,New York,1185,$$$,3.4,venue311@example.com,300
+Venue,Horizon 362,Photography,New York,808,$$,4.4,venue362@example.com,150
+Venue,Momentum 480,Theater,Los Angeles,573,$$$,3.6,venue480@example.com,300
+Venue,Vertex 111,Photography,Toronto,1911,$$,3.2,venue111@example.com,150
+Vendor,Astra 490,Conference Center,Vancouver,58,$$$$,3.2,vendor490@example.com,500
+Venue,Galaxy 487,Outdoor,Seattle,1379,$$,4.6,venue487@example.com,150
+Venue,Vertex 364,Security,Seattle,1602,$$$$,3.7,venue364@example.com,500
+Venue,Crown 255,Catering,Boston,970,$,3.8,venue255@example.com,50
+Venue,Oasis 260,Community Hall,Chicago,800,$$$$,5.0,venue260@example.com,500
+Vendor,Vertex 303,Photography,Seattle,64,$$,4.6,vendor303@example.com,150
+Vendor,Helix 178,Hotel,New York,41,$$$$,4.9,vendor178@example.com,500
+Venue,Harbor 495,Photography,Toronto,432,$$$,3.3,venue495@example.com,300
+Vendor,Phoenix 171,Photography,Seattle,57,$$$$,4.5,vendor171@example.com,500
+Venue,Echo 378,Decoration,Chicago,579,$$$,4.0,venue378@example.com,300
+Vendor,Comet 27,Hotel,Seattle,42,$$$$,4.1,vendor27@example.com,500
+Vendor,Nova 346,Decoration,New York,62,$$,4.7,vendor346@example.com,150
+Venue,Aurora 138,Catering,Toronto,598,$$$,3.2,venue138@example.com,300
+Venue,Harbor 356,Catering,Boston,590,$$,3.0,venue356@example.com,150
+Venue,Serenity 366,Community Hall,Boston,724,$$$,3.2,venue366@example.com,300
+Vendor,Comet 443,Hotel,Boston,11,$$,3.5,vendor443@example.com,150
+Vendor,Orion 250,AV,Boston,54,$$$$,4.5,vendor250@example.com,500
+Vendor,Pulse 449,Decoration,Vancouver,77,$$$$,4.1,vendor449@example.com,500
+Vendor,Cosmos 330,Security,Chicago,53,$,3.6,vendor330@example.com,50
+Vendor,Vega 157,Community Hall,Chicago,88,$,3.6,vendor157@example.com,50
+Venue,Crown 200,Conference Center,Vancouver,1676,$$,3.3,venue200@example.com,150
+Venue,Horizon 214,Theater,Seattle,1410,$$$,3.6,venue214@example.com,300
+Venue,Harbor 409,Decoration,Chicago,390,$$,4.3,venue409@example.com,150
+Venue,Vista 333,Conference Center,Los Angeles,1722,$$,4.9,venue333@example.com,150
+Venue,Vertex 209,Decoration,Los Angeles,250,$$,3.9,venue209@example.com,150
+Vendor,Nimbus 114,Security,Toronto,83,$,4.4,vendor114@example.com,50
+Venue,Mirage 79,Security,Toronto,1310,$$,5.0,venue79@example.com,150
+Venue,Zenith 30,Photography,Boston,551,$$$,4.3,venue30@example.com,300
+Vendor,Astra 36,Community Hall,Seattle,79,$,3.7,vendor36@example.com,50
+Vendor,Lyra 196,Photography,Toronto,35,$$$,3.1,vendor196@example.com,300
+Vendor,Atlas 58,AV,Los Angeles,80,$,4.7,vendor58@example.com,50
+Vendor,Helix 337,Hotel,Boston,65,$$$$,3.2,vendor337@example.com,500
+Vendor,Helix 97,Conference Center,Vancouver,98,$$$$,4.6,vendor97@example.com,500
+Venue,Aurora 166,Hotel,Chicago,424,$$$$,4.4,venue166@example.com,500
+Vendor,Lumen 419,Community Hall,Toronto,74,$$,3.4,vendor419@example.com,150
+Venue,Summit 496,Community Hall,Vancouver,1660,$$$,4.1,venue496@example.com,300
+Vendor,Lyra 325,Conference Center,New York,40,$$$,4.2,vendor325@example.com,300
+Venue,Odyssey 66,AV,Los Angeles,1105,$$,3.2,venue66@example.com,150
+Venue,Serenity 142,Photography,Vancouver,1131,$,4.4,venue142@example.com,50
+Vendor,Radiant 426,Outdoor,Seattle,50,$,3.9,vendor426@example.com,50
+Vendor,Nimbus 328,Security,Vancouver,25,$$$,3.8,vendor328@example.com,300
+Vendor,Vega 156,Conference Center,Seattle,62,$$$$,4.2,vendor156@example.com,500
+Venue,Mirage 332,Community Hall,Toronto,337,$$$,4.2,venue332@example.com,300
+Vendor,Nimbus 165,Catering,Boston,42,$$$$,3.1,vendor165@example.com,500
+Venue,Zenith 250,Outdoor,Toronto,977,$$$,4.5,venue250@example.com,300
+Vendor,Atlas 408,Hotel,Boston,99,$$$,4.1,vendor408@example.com,300
+Vendor,Helix 209,AV,Boston,77,$$$$,3.2,vendor209@example.com,500
+Venue,Vista 306,Decoration,Seattle,623,$$$,3.2,venue306@example.com,300
+Vendor,Quantum 235,Hotel,Vancouver,20,$$,4.7,vendor235@example.com,150
+Vendor,Echo 476,Conference Center,Boston,74,$,4.5,vendor476@example.com,50
+Venue,Summit 50,Conference Center,New York,1466,$$$$,4.9,venue50@example.com,500
+Vendor,Radiant 397,Outdoor,Los Angeles,45,$,4.2,vendor397@example.com,50
+Venue,Crown 3,Decoration,Vancouver,1144,$$$,4.7,venue3@example.com,300
+Vendor,Radiant 45,Community Hall,New York,94,$,4.0,vendor45@example.com,50
+Venue,Horizon 351,Outdoor,Toronto,1444,$$,3.3,venue351@example.com,150
+Vendor,Vertex 405,Hotel,Chicago,46,$$$$,3.4,vendor405@example.com,500
+Vendor,Orion 37,Theater,Boston,38,$$$,3.9,vendor37@example.com,300
+Venue,Eclipse 345,Community Hall,Toronto,1441,$,3.0,venue345@example.com,50
+Vendor,Comet 495,Conference Center,Chicago,45,$$,4.6,vendor495@example.com,150
+Venue,Solstice 482,Catering,Los Angeles,995,$$$$,3.5,venue482@example.com,500
+Vendor,Radiant 76,Hotel,Los Angeles,72,$,4.6,vendor76@example.com,50
+Venue,Horizon 34,Community Hall,New York,997,$$,3.5,venue34@example.com,150
+Venue,Nebula 32,Catering,Seattle,1205,$$$,3.4,venue32@example.com,300
+Venue,Solstice 232,AV,New York,319,$$,4.0,venue232@example.com,150
+Vendor,Orion 464,Outdoor,Boston,91,$,4.2,vendor464@example.com,50
+Venue,Vista 193,Decoration,Seattle,221,$,3.9,venue193@example.com,50
+Venue,Crown 334,Catering,Los Angeles,1513,$,4.2,venue334@example.com,50
+Venue,Cascade 4,Catering,Los Angeles,510,$$$,4.8,venue4@example.com,300
+Venue,Cascade 205,AV,Vancouver,1805,$$$,3.4,venue205@example.com,300
+Vendor,Pulse 15,Theater,Vancouver,84,$$,4.5,vendor15@example.com,150
+Vendor,Vega 300,Catering,Vancouver,53,$$$,4.4,vendor300@example.com,300
+Venue,Galaxy 307,Outdoor,Boston,1825,$$,3.1,venue307@example.com,150
+Venue,Nebula 110,Catering,Boston,306,$$$$,3.9,venue110@example.com,500
+Venue,Nebula 431,Photography,Toronto,1371,$$$$,4.3,venue431@example.com,500
+Venue,Eclipse 78,Community Hall,New York,1200,$$$$,3.7,venue78@example.com,500
+Venue,Cascade 85,Hotel,Toronto,1273,$,3.8,venue85@example.com,50
+Venue,Aurora 287,Conference Center,Vancouver,833,$$$$,3.3,venue287@example.com,500
+Venue,Vista 83,Decoration,Vancouver,1883,$$$$,4.1,venue83@example.com,500
+Vendor,Quantum 492,Decoration,Vancouver,53,$,4.2,vendor492@example.com,50
+Vendor,Stratus 290,Theater,Seattle,20,$$,4.8,vendor290@example.com,150
+Vendor,Comet 395,AV,Chicago,75,$$,3.6,vendor395@example.com,150
+Venue,Echo 399,Security,Los Angeles,1105,$,3.1,venue399@example.com,50
+Venue,Serenity 324,Security,Boston,1434,$$,3.5,venue324@example.com,150
+Vendor,Radiant 20,Catering,Seattle,96,$$$$,4.3,vendor20@example.com,500
+Vendor,Nimbus 417,Theater,New York,81,$$,3.8,vendor417@example.com,150
+Vendor,Cosmos 423,Decoration,Boston,12,$$$$,4.4,vendor423@example.com,500
+Venue,Mirage 6,Photography,Toronto,337,$$,4.7,venue6@example.com,150
+Vendor,Stratus 232,Outdoor,Seattle,99,$,4.9,vendor232@example.com,50
+Venue,Harbor 466,Hotel,Boston,932,$$$$,5.0,venue466@example.com,500
+Venue,Crown 98,Hotel,Boston,1845,$$,3.3,venue98@example.com,150
+Venue,Vista 267,AV,Los Angeles,847,$,4.0,venue267@example.com,50
+Venue,Momentum 358,Conference Center,Seattle,1468,$$$,4.5,venue358@example.com,300
+Vendor,Comet 369,Conference Center,Boston,19,$$,3.5,vendor369@example.com,150
+Vendor,Phoenix 299,Photography,New York,88,$,4.5,vendor299@example.com,50
+Venue,Cascade 381,Community Hall,Vancouver,1887,$$$,3.1,venue381@example.com,300
+Vendor,Cosmos 132,Catering,Los Angeles,89,$$$$,4.1,vendor132@example.com,500
+Venue,Galaxy 382,Outdoor,Boston,889,$$$$,4.4,venue382@example.com,500
+Venue,Momentum 491,Outdoor,Vancouver,1044,$$$$,3.3,venue491@example.com,500
+Venue,Vertex 119,Security,Boston,401,$,3.1,venue119@example.com,50
+Vendor,Phoenix 401,Theater,Toronto,82,$$$,4.4,vendor401@example.com,300
+Venue,Odyssey 251,Catering,Los Angeles,384,$$$$,4.4,venue251@example.com,500
+Vendor,Lyra 24,Security,New York,77,$$$,3.3,vendor24@example.com,300
+Venue,Momentum 10,AV,Toronto,1293,$,4.3,venue10@example.com,50
+Venue,Mirage 197,Hotel,Chicago,1494,$$$$,4.6,venue197@example.com,500
+Vendor,Helix 104,Theater,Seattle,78,$$$$,4.6,vendor104@example.com,500
+Venue,Cascade 82,Hotel,New York,1511,$$$$,4.8,venue82@example.com,500
+Vendor,Orion 284,Photography,Boston,13,$$$$,4.8,vendor284@example.com,500
+Vendor,Nova 88,Security,Boston,80,$$$,4.1,vendor88@example.com,300
+Vendor,Lynx 298,Hotel,Vancouver,39,$$,4.2,vendor298@example.com,150
+Venue,Summit 240,Outdoor,New York,771,$$,3.4,venue240@example.com,150
+Venue,Horizon 291,Photography,Seattle,1290,$$,3.6,venue291@example.com,150
+Venue,Crown 212,Outdoor,Chicago,1893,$$$,4.4,venue212@example.com,300
+Vendor,Comet 218,Catering,Toronto,56,$$$$,4.7,vendor218@example.com,500
+Venue,Summit 360,Conference Center,Vancouver,122,$,4.3,venue360@example.com,50
+Venue,Horizon 450,AV,Vancouver,1475,$$$$,3.6,venue450@example.com,500
+Venue,Horizon 228,Theater,New York,212,$$$,4.2,venue228@example.com,300
+Vendor,Vertex 451,Decoration,Vancouver,72,$$$$,3.0,vendor451@example.com,500
+Vendor,Spectrum 447,Community Hall,Boston,13,$$$,3.2,vendor447@example.com,300
+Vendor,Phoenix 297,Security,Seattle,53,$,3.4,vendor297@example.com,50
+Vendor,Stratus 2,Security,Los Angeles,36,$,4.9,vendor2@example.com,50
+Venue,Solstice 465,Conference Center,Chicago,1517,$$,4.0,venue465@example.com,150
+Venue,Zenith 363,Community Hall,Toronto,1844,$$$$,4.1,venue363@example.com,500
+Venue,Summit 469,AV,Chicago,306,$,4.8,venue469@example.com,50
+Vendor,Astra 436,Conference Center,Boston,29,$,3.1,vendor436@example.com,50
+Venue,Momentum 429,AV,Seattle,808,$$$,4.5,venue429@example.com,300
+Venue,Nebula 8,Decoration,Los Angeles,120,$$$,4.1,venue8@example.com,300
+Venue,Momentum 156,Conference Center,Vancouver,1466,$,3.2,venue156@example.com,50
+Vendor,Radiant 42,Hotel,Chicago,80,$$$,4.9,vendor42@example.com,300
+Venue,Momentum 441,Community Hall,Los Angeles,1234,$$$,4.1,venue441@example.com,300
+Venue,Horizon 483,AV,Vancouver,866,$$,4.2,venue483@example.com,150
+Venue,Galaxy 423,Hotel,New York,1541,$$$$,3.5,venue423@example.com,500
+Vendor,Phoenix 279,AV,Toronto,91,$$$$,4.8,vendor279@example.com,500
+Vendor,Vega 450,Conference Center,Los Angeles,86,$$$,4.1,vendor450@example.com,300
+Venue,Vertex 335,Community Hall,Vancouver,302,$,3.6,venue335@example.com,50
+Vendor,Comet 77,Decoration,Vancouver,22,$$$$,4.2,vendor77@example.com,500
+Vendor,Phoenix 435,Theater,Los Angeles,26,$$,3.9,vendor435@example.com,150
+Vendor,Spectrum 68,Catering,New York,91,$,4.9,vendor68@example.com,50
+Vendor,Comet 95,Catering,Toronto,18,$$$$,3.1,vendor95@example.com,500
+Vendor,Cosmos 31,Security,Boston,54,$$$,4.2,vendor31@example.com,300
+Vendor,Nova 82,Security,New York,44,$$,4.8,vendor82@example.com,150
+Vendor,Helix 208,Outdoor,Vancouver,18,$$$,4.7,vendor208@example.com,300
+Venue,Echo 449,Conference Center,Vancouver,457,$,3.6,venue449@example.com,50
+Venue,Vertex 454,Catering,New York,1627,$$$,3.0,venue454@example.com,300
+Venue,Aurora 229,Security,Seattle,1429,$$,4.0,venue229@example.com,150
+Venue,Summit 353,Conference Center,Chicago,960,$,3.1,venue353@example.com,50
+Vendor,Astra 229,Security,Chicago,22,$$$$,4.3,vendor229@example.com,500
+Venue,Nebula 213,Photography,Seattle,1994,$,4.7,venue213@example.com,50
+Venue,Oasis 80,Catering,Chicago,1953,$$,3.1,venue80@example.com,150
+Venue,Vertex 149,Community Hall,Vancouver,748,$,4.5,venue149@example.com,50
+Venue,Serenity 303,AV,Toronto,310,$,3.9,venue303@example.com,50
+Vendor,Atlas 129,Hotel,Seattle,98,$$,3.8,vendor129@example.com,150
+Vendor,Phoenix 278,Theater,Chicago,32,$,3.8,vendor278@example.com,50
+Vendor,Vega 7,Decoration,Boston,53,$$$,3.0,vendor7@example.com,300
+Venue,Aurora 343,Theater,Chicago,1041,$$,3.6,venue343@example.com,150
+Venue,Solstice 486,Security,Seattle,627,$$,3.6,venue486@example.com,150
+Vendor,Stratus 212,Community Hall,Vancouver,89,$$$,4.4,vendor212@example.com,300
+Venue,Eclipse 134,Outdoor,New York,734,$$$$,4.7,venue134@example.com,500
+Vendor,Vega 204,Conference Center,New York,62,$$$,3.3,vendor204@example.com,300
+Venue,Echo 312,Photography,New York,170,$$$$,3.1,venue312@example.com,500
+Vendor,Astra 223,Security,Toronto,43,$$,3.0,vendor223@example.com,150
+Vendor,Spectrum 130,Photography,New York,96,$$$,3.7,vendor130@example.com,300
+Venue,Harbor 1,Conference Center,Chicago,552,$$$$,3.7,venue1@example.com,500
+Venue,Nebula 317,Catering,Boston,1283,$$,3.2,venue317@example.com,150
+Vendor,Pulse 207,Theater,Seattle,73,$,3.9,vendor207@example.com,50
+Vendor,Vertex 48,Photography,Vancouver,42,$$$$,4.0,vendor48@example.com,500
+Vendor,Lumen 373,Conference Center,Los Angeles,71,$$$$,3.5,vendor373@example.com,500
+Vendor,Vega 33,Hotel,Chicago,37,$$$,3.6,vendor33@example.com,300
+Venue,Solstice 478,Decoration,Los Angeles,441,$$$$,3.1,venue478@example.com,500
+Venue,Harbor 405,Conference Center,Chicago,1739,$$,3.6,venue405@example.com,150
+Venue,Eclipse 173,Decoration,Toronto,868,$,4.3,venue173@example.com,50
+Venue,Eclipse 126,Security,Boston,1331,$,4.6,venue126@example.com,50
+Venue,Oasis 395,Theater,New York,223,$$$,4.4,venue395@example.com,300
+Venue,Galaxy 421,Theater,Chicago,756,$$$$,3.1,venue421@example.com,500
+Vendor,Orion 53,Hotel,Chicago,98,$$$,4.2,vendor53@example.com,300
+Vendor,Lynx 404,Outdoor,Seattle,47,$$$$,4.6,vendor404@example.com,500
+Venue,Oasis 91,Decoration,Chicago,1989,$$,4.4,venue91@example.com,150
+Vendor,Nimbus 440,Hotel,Los Angeles,71,$$$,4.0,vendor440@example.com,300
+Venue,Harbor 182,AV,Los Angeles,710,$,3.8,venue182@example.com,50
+Venue,Aurora 275,Photography,Toronto,1406,$$$$,3.2,venue275@example.com,500
+Vendor,Astra 396,Decoration,Los Angeles,59,$$$,3.5,vendor396@example.com,300
+Venue,Mirage 70,Security,Seattle,637,$$$$,4.6,venue70@example.com,500
+Venue,Mirage 292,Catering,Toronto,1998,$$$$,3.4,venue292@example.com,500
+Venue,Eclipse 132,AV,Toronto,660,$$,4.9,venue132@example.com,150
+Venue,Nebula 301,Decoration,Chicago,1100,$$$$,3.6,venue301@example.com,500
+Venue,Galaxy 425,Decoration,Seattle,118,$$$$,3.8,venue425@example.com,500
+Venue,Odyssey 327,Theater,Chicago,109,$$,4.2,venue327@example.com,150
+Venue,Solstice 145,Conference Center,Los Angeles,899,$,4.0,venue145@example.com,50
+Venue,Cascade 424,Security,Seattle,1376,$,4.5,venue424@example.com,50
+Vendor,Helix 81,Decoration,New York,97,$,4.0,vendor81@example.com,50
+Venue,Oasis 136,Outdoor,Seattle,1562,$$$$,4.5,venue136@example.com,500
+Venue,Summit 451,Outdoor,Toronto,187,$$,4.5,venue451@example.com,150
+Venue,Cascade 165,Hotel,Chicago,382,$$,3.3,venue165@example.com,150
+Venue,Harbor 29,AV,Boston,1633,$$,4.8,venue29@example.com,150
+Vendor,Echo 274,Catering,Vancouver,22,$,5.0,vendor274@example.com,50
+Venue,Echo 194,Decoration,Chicago,1702,$,4.0,venue194@example.com,50
+Venue,Eclipse 389,Catering,Toronto,299,$$$$,3.6,venue389@example.com,500
+Vendor,Atlas 353,Security,New York,62,$,4.0,vendor353@example.com,50
+Venue,Vista 170,Decoration,New York,595,$$,5.0,venue170@example.com,150
+Vendor,Atlas 206,AV,Los Angeles,83,$,3.4,vendor206@example.com,50
+Venue,Odyssey 141,Decoration,Boston,769,$$$$,3.2,venue141@example.com,500
+Venue,Mirage 174,AV,Los Angeles,954,$,3.0,venue174@example.com,50
+Venue,Momentum 7,Conference Center,Los Angeles,1622,$$,4.6,venue7@example.com,150
+Vendor,Comet 246,Decoration,Chicago,55,$$,3.6,vendor246@example.com,150
+Venue,Summit 479,Community Hall,Los Angeles,305,$$$,4.2,venue479@example.com,300
+Venue,Horizon 74,Catering,Los Angeles,1063,$$$,3.0,venue74@example.com,300
+Vendor,Cosmos 411,Conference Center,Seattle,37,$$$$,4.3,vendor411@example.com,500
+Vendor,Echo 314,Community Hall,Los Angeles,94,$$$$,4.5,vendor314@example.com,500
+Venue,Momentum 239,Outdoor,Boston,1717,$,3.5,venue239@example.com,50
+Venue,Summit 146,Decoration,Vancouver,155,$$,4.2,venue146@example.com,150
+Vendor,Phoenix 293,Hotel,Toronto,50,$,4.8,vendor293@example.com,50
+Venue,Echo 235,Hotel,Los Angeles,1726,$$,4.8,venue235@example.com,150
+Venue,Aurora 221,Catering,Los Angeles,1853,$$,3.1,venue221@example.com,150
+Vendor,Quantum 424,Decoration,Seattle,72,$$$$,4.2,vendor424@example.com,500
+Vendor,Echo 1,Decoration,Boston,83,$,4.3,vendor1@example.com,50
+Venue,Zenith 133,Theater,Vancouver,489,$$,4.0,venue133@example.com,150
+Vendor,Spectrum 491,Decoration,Seattle,73,$$,3.6,vendor491@example.com,150
+Vendor,Orion 275,AV,Los Angeles,76,$$,3.3,vendor275@example.com,150
+Venue,Eclipse 186,Decoration,Toronto,631,$$,3.7,venue186@example.com,150
+Venue,Eclipse 42,Conference Center,Seattle,1412,$$$$,4.5,venue42@example.com,500
+Vendor,Nova 197,AV,Toronto,11,$$,3.4,vendor197@example.com,150
+Venue,Crown 109,Security,Los Angeles,1878,$$,4.9,venue109@example.com,150
+Vendor,Orion 89,AV,Vancouver,12,$$,3.9,vendor89@example.com,150
+Venue,Harbor 57,Conference Center,Chicago,805,$$$,3.8,venue57@example.com,300
+Venue,Cascade 406,Decoration,Seattle,1813,$$$$,4.1,venue406@example.com,500
+Venue,Momentum 443,AV,Boston,1754,$$,3.8,venue443@example.com,150
+Vendor,Phoenix 258,Outdoor,Seattle,83,$,4.2,vendor258@example.com,50
+Vendor,Atlas 498,Photography,Boston,60,$,3.1,vendor498@example.com,50
+Venue,Crown 25,Outdoor,Toronto,943,$$$$,5.0,venue25@example.com,500
+Venue,Horizon 468,Outdoor,New York,1208,$$,3.6,venue468@example.com,150
+Vendor,Echo 40,Outdoor,Vancouver,93,$$,4.6,vendor40@example.com,150
+Vendor,Atlas 32,Hotel,New York,91,$$$$,4.1,vendor32@example.com,500
+Vendor,Lumen 119,Catering,Vancouver,77,$$,3.9,vendor119@example.com,150
+Vendor,Helix 195,Photography,Toronto,78,$$$,3.9,vendor195@example.com,300
+Vendor,Spectrum 427,Conference Center,Toronto,75,$,4.3,vendor427@example.com,50
+Venue,Cascade 339,Outdoor,New York,1708,$$$,4.3,venue339@example.com,300
+Venue,Echo 52,Theater,Los Angeles,1851,$$$$,4.9,venue52@example.com,500
+Vendor,Cosmos 8,Photography,Toronto,42,$$$,3.1,vendor8@example.com,300
+Vendor,Orion 17,Theater,Seattle,56,$$$$,3.6,vendor17@example.com,500
+Vendor,Vega 421,Security,New York,97,$,3.7,vendor421@example.com,50
+Vendor,Helix 282,Conference Center,Los Angeles,22,$,3.4,vendor282@example.com,50
+Venue,Echo 265,Photography,Seattle,751,$$$$,3.9,venue265@example.com,500
+Vendor,Vertex 318,Outdoor,New York,58,$$$$,3.7,vendor318@example.com,500
+Vendor,Vertex 211,Community Hall,Seattle,50,$$$,3.8,vendor211@example.com,300
+Vendor,Astra 183,Outdoor,Los Angeles,66,$$$,3.6,vendor183@example.com,300
+Vendor,Lyra 333,Decoration,New York,10,$$$$,4.4,vendor333@example.com,500
+Vendor,Stratus 19,Catering,Los Angeles,32,$,4.3,vendor19@example.com,50
+Venue,Odyssey 448,Photography,Chicago,843,$$,3.1,venue448@example.com,150
+Venue,Nebula 19,Security,Seattle,699,$$$$,3.2,venue19@example.com,500
+Vendor,Radiant 216,Community Hall,Vancouver,69,$$$,3.3,vendor216@example.com,300
+Venue,Mirage 484,Theater,Seattle,1461,$$$$,4.3,venue484@example.com,500
+Vendor,Atlas 69,Conference Center,Seattle,13,$$$$,3.1,vendor69@example.com,500
+Venue,Horizon 434,Hotel,Seattle,1910,$$,3.4,venue434@example.com,150
+Venue,Serenity 368,Photography,Boston,1272,$$,4.7,venue368@example.com,150
+Venue,Galaxy 84,Photography,Toronto,1758,$$$,3.9,venue84@example.com,300
+Venue,Vertex 62,Outdoor,Seattle,535,$$$$,4.7,venue62@example.com,500
+Vendor,Echo 139,Conference Center,New York,19,$$,3.6,vendor139@example.com,150
+Venue,Vista 273,Conference Center,Boston,384,$$$$,4.0,venue273@example.com,500
+Venue,Aurora 286,Hotel,Boston,1384,$,4.5,venue286@example.com,50
+Venue,Momentum 361,Decoration,Boston,1545,$,4.3,venue361@example.com,50
+Venue,Echo 355,Community Hall,Chicago,260,$$$$,3.3,venue355@example.com,500
+Venue,Galaxy 457,Decoration,Toronto,414,$,3.5,venue457@example.com,50
+Venue,Summit 279,Hotel,Boston,1257,$$,3.4,venue279@example.com,150
+Venue,Horizon 13,Catering,Los Angeles,1924,$$,4.2,venue13@example.com,150
+Venue,Aurora 183,Community Hall,New York,285,$$$,3.9,venue183@example.com,300
+Venue,Oasis 369,AV,Vancouver,318,$,3.1,venue369@example.com,50
+Vendor,Orion 382,Decoration,Los Angeles,93,$$$$,3.5,vendor382@example.com,500
+Vendor,Vega 116,Hotel,Seattle,37,$,4.0,vendor116@example.com,50
+Venue,Echo 224,Photography,Boston,1565,$,3.4,venue224@example.com,50
+Vendor,Vertex 73,Hotel,Toronto,54,$$$,4.3,vendor73@example.com,300
+Vendor,Cosmos 471,AV,Vancouver,54,$$,3.1,vendor471@example.com,150
+Vendor,Nova 154,Conference Center,Boston,60,$,3.6,vendor154@example.com,50
+Vendor,Spectrum 46,Decoration,Los Angeles,76,$$$$,3.1,vendor46@example.com,500
+Vendor,Nimbus 83,Catering,Toronto,71,$,4.2,vendor83@example.com,50
+Vendor,Vertex 134,Outdoor,Vancouver,95,$$,4.6,vendor134@example.com,150
+Venue,Echo 177,Security,Seattle,1282,$$,4.7,venue177@example.com,150
+Vendor,Nova 166,Decoration,New York,30,$$,4.7,vendor166@example.com,150
+Vendor,Spectrum 174,AV,Boston,93,$$,3.1,vendor174@example.com,150
+Vendor,Vertex 86,Theater,Boston,75,$$$$,3.3,vendor86@example.com,500
+Vendor,Radiant 374,Conference Center,New York,80,$$$$,3.2,vendor374@example.com,500
+Venue,Aurora 394,Photography,Seattle,1433,$$$,3.2,venue394@example.com,300
+Venue,Zenith 164,Theater,Los Angeles,960,$$$$,4.2,venue164@example.com,500
+Venue,Mirage 249,Photography,Toronto,528,$$$,4.3,venue249@example.com,300
+Vendor,Phoenix 135,Conference Center,Los Angeles,40,$$,4.3,vendor135@example.com,150
+Vendor,Comet 386,Hotel,Los Angeles,46,$,3.2,vendor386@example.com,50
+Vendor,Lyra 170,Hotel,Vancouver,50,$,4.3,vendor170@example.com,50
+Venue,Cascade 376,Hotel,Seattle,1256,$$$,4.2,venue376@example.com,300
+Venue,Summit 413,Theater,New York,408,$$$,3.3,venue413@example.com,300
+Venue,Cascade 75,Outdoor,New York,1961,$$$,4.6,venue75@example.com,300
+Venue,Eclipse 114,Catering,Boston,833,$$$$,4.6,venue114@example.com,500
+Vendor,Comet 99,Hotel,Seattle,86,$$,3.4,vendor99@example.com,150
+Vendor,Radiant 462,Conference Center,New York,24,$$,3.4,vendor462@example.com,150
+Venue,Horizon 391,Decoration,Los Angeles,998,$$$,5.0,venue391@example.com,300
+Venue,Vertex 105,Conference Center,Boston,1570,$$$$,3.6,venue105@example.com,500
+Venue,Vertex 115,Decoration,Boston,1722,$,3.0,venue115@example.com,50
+Venue,Momentum 418,Community Hall,Vancouver,1521,$$,4.4,venue418@example.com,150
+Vendor,Atlas 26,Security,Seattle,23,$$$,3.7,vendor26@example.com,300
+Venue,Harbor 458,Conference Center,Vancouver,453,$$,4.4,venue458@example.com,150
+Venue,Vertex 410,Photography,Los Angeles,1960,$$$,3.2,venue410@example.com,300
+Venue,Harbor 93,Photography,Chicago,371,$$,4.0,venue93@example.com,150
+Vendor,Quantum 431,Community Hall,Los Angeles,69,$,4.3,vendor431@example.com,50
+Venue,Nebula 90,Security,Seattle,540,$,3.5,venue90@example.com,50
+Venue,Momentum 337,Outdoor,Toronto,440,$,3.0,venue337@example.com,50
+Vendor,Helix 489,Photography,Seattle,17,$,3.8,vendor489@example.com,50
+Vendor,Lynx 422,Outdoor,New York,32,$$$,3.9,vendor422@example.com,300
+Vendor,Cosmos 434,Community Hall,Seattle,38,$$,4.3,vendor434@example.com,150
+Vendor,Spectrum 106,Catering,Los Angeles,13,$$,4.6,vendor106@example.com,150
+Vendor,Orion 94,Community Hall,Seattle,40,$$$$,4.8,vendor94@example.com,500
+Vendor,Comet 112,Outdoor,Vancouver,87,$,3.3,vendor112@example.com,50
+Venue,Galaxy 95,Decoration,Chicago,610,$,3.8,venue95@example.com,50
+Venue,Momentum 12,Outdoor,Chicago,333,$$$$,3.6,venue12@example.com,500
+Venue,Vertex 397,Community Hall,Boston,1324,$$,4.2,venue397@example.com,150
+Vendor,Vega 34,AV,New York,71,$,4.1,vendor34@example.com,50
+Venue,Vertex 44,Outdoor,Vancouver,590,$$$,4.1,venue44@example.com,300
+Venue,Serenity 43,Photography,Chicago,350,$$$,3.3,venue43@example.com,300
+Venue,Serenity 330,Outdoor,Chicago,1014,$$$,3.6,venue330@example.com,300
+Venue,Serenity 168,Outdoor,Vancouver,1390,$,4.4,venue168@example.com,50
+Venue,Odyssey 498,Conference Center,New York,325,$$$,3.6,venue498@example.com,300
+Vendor,Astra 377,Decoration,Toronto,95,$,3.1,vendor377@example.com,50
+Vendor,Helix 98,Conference Center,Los Angeles,57,$$$,4.6,vendor98@example.com,300
+Vendor,Helix 257,Security,Vancouver,76,$,3.5,vendor257@example.com,50
+Venue,Cascade 101,Conference Center,Vancouver,1285,$,4.5,venue101@example.com,50
+Venue,Cascade 427,Theater,New York,1177,$,4.8,venue427@example.com,50
+Venue,Galaxy 179,Community Hall,Chicago,1107,$$,4.7,venue179@example.com,150
+Venue,Echo 445,Hotel,Boston,1761,$$$$,3.8,venue445@example.com,500
+Venue,Horizon 417,Theater,Vancouver,1019,$$,4.1,venue417@example.com,150
+Vendor,Nova 371,AV,Toronto,18,$$$,3.4,vendor371@example.com,300
+Vendor,Astra 383,Community Hall,Chicago,18,$$$$,4.5,vendor383@example.com,500
+Vendor,Pulse 181,Security,Toronto,76,$$,3.8,vendor181@example.com,150
+Venue,Odyssey 178,Conference Center,Vancouver,399,$$$$,3.9,venue178@example.com,500
+Venue,Solstice 396,Decoration,Chicago,412,$$$,3.9,venue396@example.com,300
+Vendor,Pulse 412,Outdoor,Vancouver,96,$$$$,4.4,vendor412@example.com,500
+Vendor,Lyra 294,Conference Center,New York,89,$$$$,4.9,vendor294@example.com,500
+Vendor,Astra 461,Theater,Toronto,84,$$$$,3.7,vendor461@example.com,500
+Vendor,Orion 185,Photography,Chicago,77,$$$$,4.1,vendor185@example.com,500
+Venue,Nebula 384,Outdoor,Chicago,840,$$$$,4.3,venue384@example.com,500
+Vendor,Vertex 457,Hotel,Seattle,52,$$,3.2,vendor457@example.com,150
+Vendor,Comet 252,Outdoor,Seattle,85,$$$,3.2,vendor252@example.com,300
+Venue,Summit 258,Community Hall,Chicago,800,$$$,4.9,venue258@example.com,300
+Vendor,Helix 39,Hotel,Boston,35,$$$$,3.3,vendor39@example.com,500
+Venue,Eclipse 336,Decoration,Toronto,1431,$$,3.2,venue336@example.com,150
+Venue,Eclipse 16,Community Hall,Los Angeles,1947,$$,4.4,venue16@example.com,150
+Venue,Momentum 325,Community Hall,Chicago,646,$$$$,4.6,venue325@example.com,500
+Vendor,Astra 259,Decoration,Chicago,15,$$,3.9,vendor259@example.com,150
+Venue,Odyssey 223,Theater,Toronto,1427,$,3.2,venue223@example.com,50
+Venue,Horizon 180,Conference Center,Chicago,156,$$$,3.4,venue180@example.com,300
+Vendor,Lumen 484,Hotel,Seattle,88,$,4.2,vendor484@example.com,50
+Venue,Zenith 23,AV,Toronto,970,$$$,3.7,venue23@example.com,300
+Venue,Harbor 357,Theater,Chicago,1513,$$,3.1,venue357@example.com,150
+Vendor,Vega 167,Community Hall,Los Angeles,24,$$,3.7,vendor167@example.com,150
+Vendor,Stratus 362,AV,Toronto,60,$,3.1,vendor362@example.com,50
+Venue,Aurora 341,Community Hall,Toronto,466,$$$$,4.9,venue341@example.com,500
+Venue,Momentum 432,Outdoor,New York,1107,$$,4.0,venue432@example.com,150
+Vendor,Nimbus 52,Photography,Vancouver,68,$,4.1,vendor52@example.com,50
+Vendor,Vega 334,Catering,New York,80,$$$,4.6,vendor334@example.com,300
+Venue,Oasis 204,Hotel,Seattle,876,$$,3.6,venue204@example.com,150
+Vendor,Vertex 131,Conference Center,Chicago,92,$$$$,3.5,vendor131@example.com,500
+Venue,Solstice 94,Outdoor,Chicago,263,$,3.2,venue94@example.com,50
+Vendor,Lumen 59,Community Hall,Vancouver,46,$$,4.3,vendor59@example.com,150
+Venue,Nebula 69,Community Hall,Chicago,1804,$$,3.4,venue69@example.com,150
+Vendor,Lyra 123,Community Hall,New York,76,$,4.9,vendor123@example.com,50
+Venue,Eclipse 285,Outdoor,Boston,1022,$$$$,5.0,venue285@example.com,500
+Vendor,Nova 345,Photography,New York,80,$,3.3,vendor345@example.com,50
+Venue,Horizon 435,AV,Vancouver,1035,$,3.5,venue435@example.com,50
+Venue,Eclipse 154,Conference Center,Boston,1425,$$$$,4.7,venue154@example.com,500
+Venue,Galaxy 76,Community Hall,Los Angeles,245,$$$$,3.4,venue76@example.com,500
+Vendor,Quantum 231,Hotel,New York,99,$$,3.7,vendor231@example.com,150
+Venue,Summit 447,Theater,Los Angeles,550,$$$,4.4,venue447@example.com,300
+Venue,Horizon 189,Community Hall,Toronto,1169,$,3.5,venue189@example.com,50
+Venue,Vertex 272,AV,Toronto,1520,$,4.2,venue272@example.com,50
+Venue,Galaxy 237,Catering,New York,586,$$,4.3,venue237@example.com,150
+Venue,Zenith 488,Security,Chicago,404,$$$,4.1,venue488@example.com,300
+Venue,Harbor 118,Community Hall,Vancouver,1158,$,3.6,venue118@example.com,50
+Vendor,Spectrum 444,Catering,Boston,83,$,3.4,vendor444@example.com,50
+Vendor,Nova 13,Decoration,Chicago,81,$$,4.4,vendor13@example.com,150
+Vendor,Pulse 326,Conference Center,Chicago,46,$,3.7,vendor326@example.com,50
+Vendor,Nova 92,Conference Center,Seattle,12,$$$$,3.2,vendor92@example.com,500
+Venue,Solstice 127,Hotel,Chicago,164,$$,3.9,venue127@example.com,150
+Venue,Aurora 117,AV,Toronto,228,$$$$,4.4,venue117@example.com,500
+Venue,Crown 474,Outdoor,Toronto,1100,$$,4.6,venue474@example.com,150
+Vendor,Orion 194,Security,Chicago,63,$,3.5,vendor194@example.com,50
+Venue,Oasis 58,Conference Center,Seattle,1404,$$,3.9,venue58@example.com,150
+Vendor,Quantum 364,Conference Center,Seattle,100,$$$$,3.8,vendor364@example.com,500
+Vendor,Pulse 413,Theater,Vancouver,75,$$$$,3.2,vendor413@example.com,500
+Venue,Vertex 370,Decoration,Toronto,1292,$$$,4.9,venue370@example.com,300
+Venue,Aurora 269,Outdoor,Boston,404,$,4.3,venue269@example.com,50
+Venue,Horizon 47,Outdoor,New York,1997,$$$,4.8,venue47@example.com,300
+Venue,Zenith 350,AV,New York,1781,$$$,4.1,venue350@example.com,300
+Venue,Zenith 196,Security,New York,388,$$$$,4.0,venue196@example.com,500
+Vendor,Radiant 500,Decoration,Boston,55,$$$,4.3,vendor500@example.com,300
+Vendor,Nimbus 335,Hotel,Seattle,73,$$,4.3,vendor335@example.com,150
+Vendor,Orion 237,Community Hall,Toronto,83,$$,4.5,vendor237@example.com,150
+Venue,Vista 264,Security,Seattle,1079,$$$,3.5,venue264@example.com,300
+Venue,Serenity 444,Decoration,Vancouver,126,$$$$,5.0,venue444@example.com,500
+Vendor,Pulse 176,Photography,Vancouver,97,$,3.8,vendor176@example.com,50
+Venue,Solstice 305,AV,Chicago,1197,$$$,4.0,venue305@example.com,300
+Venue,Oasis 342,Hotel,Vancouver,845,$,4.0,venue342@example.com,50
+Vendor,Radiant 467,Conference Center,Chicago,22,$$$$,3.0,vendor467@example.com,500
+Venue,Zenith 150,Catering,Toronto,858,$$$,4.1,venue150@example.com,300
+Venue,Nebula 125,Theater,Chicago,207,$,3.9,venue125@example.com,50
+Vendor,Stratus 287,Decoration,Toronto,100,$,3.9,vendor287@example.com,50
+Venue,Galaxy 51,Community Hall,Boston,813,$$,4.6,venue51@example.com,150
+Venue,Echo 354,Decoration,New York,1355,$$$$,3.5,venue354@example.com,500
+Vendor,Lumen 428,Photography,Boston,97,$$$,3.9,vendor428@example.com,300
+Venue,Vista 143,Catering,Toronto,1140,$$$$,4.9,venue143@example.com,500
+Venue,Momentum 471,Theater,Boston,167,$$$$,4.5,venue471@example.com,500
+Venue,Oasis 400,Conference Center,New York,1292,$$,3.5,venue400@example.com,150
+Vendor,Stratus 126,Security,Los Angeles,26,$$$$,4.3,vendor126@example.com,500
+Venue,Summit 321,Community Hall,Toronto,1561,$$$,4.0,venue321@example.com,300
+Venue,Zenith 20,Catering,Chicago,846,$,3.7,venue20@example.com,50
+Vendor,Radiant 310,Catering,Boston,56,$$$$,4.8,vendor310@example.com,500
+Vendor,Vertex 291,Security,Vancouver,30,$$$,4.4,vendor291@example.com,300
+Vendor,Lynx 309,Outdoor,Boston,23,$$,3.1,vendor309@example.com,150
+Venue,Oasis 408,Hotel,Boston,1809,$$$$,3.6,venue408@example.com,500
+Vendor,Comet 38,Conference Center,Vancouver,57,$$$,3.0,vendor38@example.com,300
+Vendor,Vertex 121,Decoration,Los Angeles,95,$,3.8,vendor121@example.com,50
+Venue,Zenith 39,Conference Center,Boston,845,$$$,3.3,venue39@example.com,300
+Venue,Vista 176,Conference Center,New York,1477,$$,3.1,venue176@example.com,150
+Venue,Eclipse 246,Conference Center,New York,483,$$$$,5.0,venue246@example.com,500
+Vendor,Lynx 329,Security,Seattle,53,$$$,4.3,vendor329@example.com,300
+Vendor,Cosmos 168,Hotel,Toronto,50,$$,3.7,vendor168@example.com,150
+Vendor,Quantum 255,Community Hall,Seattle,54,$,3.2,vendor255@example.com,50
+Vendor,Cosmos 359,Security,New York,47,$,4.2,vendor359@example.com,50
+Venue,Horizon 155,Photography,Toronto,1095,$,4.9,venue155@example.com,50
+Venue,Eclipse 288,Catering,New York,517,$$$$,4.7,venue288@example.com,500
+Vendor,Radiant 103,Theater,Vancouver,91,$$,4.8,vendor103@example.com,150
+Vendor,Pulse 70,Conference Center,Chicago,81,$$,3.7,vendor70@example.com,150
+Vendor,Vega 244,Decoration,Los Angeles,10,$$$$,3.3,vendor244@example.com,500
+Venue,Vertex 18,Theater,Los Angeles,1433,$$$$,3.4,venue18@example.com,500
+Venue,Galaxy 128,Security,Toronto,1415,$$$,4.4,venue128@example.com,300
+Venue,Vista 323,Decoration,Boston,374,$$,4.5,venue323@example.com,150
+Venue,Harbor 256,Security,Los Angeles,1180,$$,3.5,venue256@example.com,150
+Vendor,Radiant 158,Outdoor,Toronto,22,$$$,4.4,vendor158@example.com,300
+Vendor,Phoenix 465,Decoration,New York,62,$$,4.0,vendor465@example.com,150
+Venue,Galaxy 191,AV,Toronto,218,$$$,4.7,venue191@example.com,300
+Venue,Echo 116,Community Hall,New York,433,$$,3.5,venue116@example.com,150
+Vendor,Comet 117,Catering,Toronto,61,$$,4.0,vendor117@example.com,150
+Vendor,Atlas 107,AV,Toronto,17,$,3.4,vendor107@example.com,50
+Venue,Harbor 181,Catering,Boston,589,$$$,4.5,venue181@example.com,300
+Venue,Vista 302,Security,Boston,106,$$$,4.6,venue302@example.com,300
+Vendor,Nova 260,Catering,Toronto,86,$$$,4.9,vendor260@example.com,300
+Vendor,Nova 213,Outdoor,Boston,64,$,3.0,vendor213@example.com,50
+Vendor,Pulse 224,Security,Chicago,31,$,4.7,vendor224@example.com,50
+Vendor,Comet 186,Hotel,Chicago,32,$$$$,3.1,vendor186@example.com,500
+Vendor,Orion 480,Security,Los Angeles,90,$$$,4.4,vendor480@example.com,300
+Vendor,Comet 18,Decoration,Los Angeles,26,$$$,3.6,vendor18@example.com,300
+Vendor,Radiant 485,Security,Boston,73,$,5.0,vendor485@example.com,50
+Venue,Harbor 46,Theater,Seattle,403,$$$$,3.6,venue46@example.com,500
+Vendor,Cosmos 410,AV,Boston,83,$$$,4.9,vendor410@example.com,300
+Venue,Momentum 158,Photography,Toronto,1576,$$$,4.8,venue158@example.com,300
+Vendor,Vega 352,Community Hall,New York,75,$,5.0,vendor352@example.com,50
+Venue,Mirage 172,Theater,Toronto,1998,$,4.7,venue172@example.com,50
+Venue,Summit 17,Photography,Chicago,1884,$$$,3.7,venue17@example.com,300
+Vendor,Stratus 12,Hotel,Chicago,22,$$$$,3.0,vendor12@example.com,500
+Venue,Vista 49,AV,Los Angeles,1125,$$$$,4.4,venue49@example.com,500
+Vendor,Vega 472,Decoration,Seattle,16,$$$$,4.8,vendor472@example.com,500
+Vendor,Nimbus 441,Conference Center,Toronto,89,$$,3.2,vendor441@example.com,150
+Vendor,Comet 16,Catering,Boston,11,$$$,4.6,vendor16@example.com,300
+Vendor,Nimbus 453,Security,Toronto,88,$$,4.8,vendor453@example.com,150
+Venue,Mirage 481,Theater,Chicago,104,$$$$,3.9,venue481@example.com,500
+Venue,Mirage 284,Decoration,Vancouver,448,$$,3.1,venue284@example.com,150
+Vendor,Echo 219,Security,Toronto,61,$$$,4.0,vendor219@example.com,300
+Vendor,Lyra 378,Photography,Chicago,53,$,3.4,vendor378@example.com,50
+Venue,Odyssey 226,Theater,Boston,1490,$$,3.8,venue226@example.com,150
+Venue,Vertex 27,Community Hall,New York,418,$,4.5,venue27@example.com,50
+Vendor,Nova 455,Theater,Chicago,79,$$$$,3.6,vendor455@example.com,500
+Venue,Eclipse 438,Photography,Chicago,1532,$$$$,4.1,venue438@example.com,500
+Vendor,Phoenix 452,Security,Vancouver,70,$$,4.7,vendor452@example.com,150
+Venue,Harbor 365,Conference Center,Boston,1451,$$$$,3.1,venue365@example.com,500
+Venue,Aurora 230,Security,Toronto,1334,$$,4.1,venue230@example.com,150
+Venue,Harbor 38,Photography,Vancouver,1321,$$,3.5,venue38@example.com,150
+Vendor,Atlas 466,AV,Los Angeles,49,$,3.5,vendor466@example.com,50
+Venue,Solstice 375,Hotel,Vancouver,1977,$$$,4.5,venue375@example.com,300
+Venue,Vista 470,Community Hall,New York,948,$$$$,3.6,venue470@example.com,500
+Vendor,Lynx 468,Catering,Seattle,40,$$,4.3,vendor468@example.com,150
+Vendor,Lynx 351,Theater,Toronto,22,$,4.0,vendor351@example.com,50
+Vendor,Spectrum 205,AV,Los Angeles,33,$$$,3.8,vendor205@example.com,300
+Vendor,Orion 342,Conference Center,New York,99,$$,4.4,vendor342@example.com,150
+Venue,Summit 195,Photography,New York,659,$$$,3.2,venue195@example.com,300
+Vendor,Radiant 355,Community Hall,Boston,28,$$$,3.1,vendor355@example.com,300
+Vendor,Nimbus 365,Theater,New York,83,$$$,4.5,vendor365@example.com,300
+Vendor,Nova 4,Catering,Seattle,54,$$$,4.3,vendor4@example.com,300
+Vendor,Vertex 470,Photography,Chicago,11,$,3.2,vendor470@example.com,50
+Vendor,Quantum 331,Decoration,Chicago,51,$$,4.1,vendor331@example.com,150
+Vendor,Nimbus 80,Conference Center,Chicago,45,$$$,4.8,vendor80@example.com,300
+Vendor,Pulse 469,AV,Boston,53,$$$$,4.8,vendor469@example.com,500
+Venue,Zenith 163,Outdoor,Boston,1833,$,3.2,venue163@example.com,50
+Vendor,Quantum 409,Hotel,Toronto,48,$$$$,4.5,vendor409@example.com,500
+Venue,Vertex 153,Security,Seattle,1585,$$$$,4.4,venue153@example.com,500
+Vendor,Echo 302,Theater,New York,70,$,3.3,vendor302@example.com,50
+Vendor,Vega 494,Security,Los Angeles,56,$$,3.6,vendor494@example.com,150
+Vendor,Spectrum 256,Security,Los Angeles,76,$$$$,3.6,vendor256@example.com,500
+Venue,Momentum 112,Catering,Chicago,1088,$,4.2,venue112@example.com,50
+Venue,Nebula 227,Catering,Boston,1502,$$$,4.1,venue227@example.com,300
+Vendor,Vega 189,Security,Vancouver,34,$$,4.7,vendor189@example.com,150
+Venue,Galaxy 104,Decoration,Boston,322,$$,4.1,venue104@example.com,150
+Venue,Odyssey 422,AV,Vancouver,1772,$$$$,3.1,venue422@example.com,500
+Venue,Harbor 420,Decoration,Boston,1601,$$$,4.6,venue420@example.com,300
+Vendor,Lynx 251,Theater,Seattle,36,$$$,4.0,vendor251@example.com,300
+Vendor,Lynx 87,Catering,Vancouver,95,$$$,4.8,vendor87@example.com,300
+Vendor,Helix 281,AV,New York,67,$$$$,3.8,vendor281@example.com,500
+Vendor,Spectrum 173,Hotel,Boston,23,$,3.7,vendor173@example.com,50
+Venue,Echo 120,Decoration,Vancouver,1093,$,3.7,venue120@example.com,50
+Venue,Zenith 54,Conference Center,Boston,753,$$$,3.5,venue54@example.com,300
+Venue,Echo 152,Conference Center,Los Angeles,238,$$$$,4.6,venue152@example.com,500
+Venue,Odyssey 404,Photography,Toronto,1590,$$$,3.5,venue404@example.com,300
+Vendor,Nova 446,Security,Seattle,95,$$,4.9,vendor446@example.com,150
+Venue,Horizon 208,Hotel,Seattle,873,$$$$,3.9,venue208@example.com,500
+Vendor,Nimbus 159,Photography,Vancouver,25,$$$$,4.2,vendor159@example.com,500
+Vendor,Echo 344,Outdoor,Vancouver,60,$,3.3,vendor344@example.com,50
+Vendor,Lyra 263,Security,Seattle,96,$$,3.1,vendor263@example.com,150
+Venue,Horizon 9,Decoration,Boston,1695,$,4.8,venue9@example.com,50
+Vendor,Quantum 308,Catering,Los Angeles,91,$$$$,4.1,vendor308@example.com,500
+Venue,Vista 37,Security,Toronto,1088,$$$$,4.2,venue37@example.com,500
+Venue,Solstice 453,Hotel,Toronto,1281,$$$$,3.6,venue453@example.com,500
+Vendor,Vertex 152,AV,Chicago,16,$$,4.0,vendor152@example.com,150
+Venue,Harbor 254,Outdoor,Chicago,190,$,3.0,venue254@example.com,50
+Venue,Eclipse 304,Conference Center,Vancouver,382,$$,3.8,venue304@example.com,150
+Vendor,Quantum 247,Outdoor,Boston,16,$,3.7,vendor247@example.com,50
+Vendor,Radiant 72,Photography,Toronto,78,$$,4.5,vendor72@example.com,150
+Vendor,Lynx 124,Catering,Chicago,32,$$,3.7,vendor124@example.com,150
+Vendor,Comet 233,AV,Vancouver,70,$,3.5,vendor233@example.com,50
+Vendor,Lynx 392,Decoration,Chicago,97,$$,3.6,vendor392@example.com,150
+Venue,Crown 263,Security,Toronto,679,$$,4.4,venue263@example.com,150
+Vendor,Cosmos 111,Community Hall,New York,11,$,3.4,vendor111@example.com,50
+Venue,Zenith 298,Hotel,Los Angeles,1451,$$$$,3.1,venue298@example.com,500
+Venue,Summit 415,Community Hall,Seattle,209,$,3.0,venue415@example.com,50
+Venue,Eclipse 151,Theater,Vancouver,1015,$$$,3.7,venue151@example.com,300
+Vendor,Radiant 289,Outdoor,New York,75,$,3.9,vendor289@example.com,50
+Vendor,Lynx 141,Theater,New York,34,$$,3.5,vendor141@example.com,150
+Vendor,Orion 390,AV,Boston,75,$,5.0,vendor390@example.com,50
+Vendor,Pulse 51,Hotel,New York,46,$$,4.4,vendor51@example.com,150
+Vendor,Pulse 387,Decoration,New York,42,$,4.7,vendor387@example.com,50
+Venue,Odyssey 489,Hotel,Toronto,658,$$,4.2,venue489@example.com,150
+Venue,Harbor 148,Photography,New York,631,$$$$,3.1,venue148@example.com,500
+Venue,Zenith 147,Conference Center,Seattle,702,$$$,4.5,venue147@example.com,300
+Vendor,Phoenix 221,AV,New York,28,$$,4.4,vendor221@example.com,150
+Vendor,Quantum 432,Security,Vancouver,20,$$$$,5.0,vendor432@example.com,500
+Vendor,Stratus 240,Security,Vancouver,81,$$$$,4.1,vendor240@example.com,500
+Vendor,Spectrum 160,Security,Seattle,38,$,4.4,vendor160@example.com,50
+Venue,Crown 349,Conference Center,Seattle,1198,$,3.3,venue349@example.com,50
+Venue,Horizon 464,Decoration,Toronto,1818,$,3.7,venue464@example.com,50
+Venue,Vertex 326,Outdoor,Seattle,1296,$$$,3.1,venue326@example.com,300
+Venue,Cascade 187,Decoration,Los Angeles,831,$$,3.9,venue187@example.com,150
+Venue,Nebula 124,Theater,Seattle,412,$,3.6,venue124@example.com,50
+Vendor,Atlas 354,Community Hall,Chicago,91,$$$,3.4,vendor354@example.com,300
+Vendor,Atlas 109,Catering,Chicago,19,$$$$,4.3,vendor109@example.com,500
+Venue,Aurora 144,AV,Seattle,994,$$$,4.0,venue144@example.com,300
+Vendor,Atlas 459,AV,Chicago,40,$,4.3,vendor459@example.com,50
+Venue,Galaxy 198,Conference Center,Chicago,1046,$,3.1,venue198@example.com,50
+Vendor,Atlas 110,Community Hall,Seattle,45,$$,3.3,vendor110@example.com,150
+Venue,Mirage 280,Decoration,Boston,1789,$$$$,3.7,venue280@example.com,500
+Venue,Oasis 294,Decoration,Boston,1097,$,4.9,venue294@example.com,50
+Venue,Cascade 401,Catering,New York,1446,$$$,3.6,venue401@example.com,300
+Venue,Eclipse 123,Conference Center,Vancouver,457,$$$$,4.8,venue123@example.com,500
+Venue,Aurora 184,Hotel,Boston,1418,$$$,3.0,venue184@example.com,300
+Venue,Solstice 203,Catering,Chicago,1089,$$$,4.8,venue203@example.com,300
+Venue,Echo 439,Security,Seattle,1650,$$$,5.0,venue439@example.com,300
+Venue,Momentum 247,Hotel,Boston,260,$$$,4.3,venue247@example.com,300
+Venue,Eclipse 416,Outdoor,Vancouver,1218,$$,3.2,venue416@example.com,150
+Vendor,Nimbus 433,Community Hall,Toronto,73,$$,3.2,vendor433@example.com,150
+Vendor,Nova 266,Outdoor,Los Angeles,43,$$$$,3.8,vendor266@example.com,500
+Vendor,Quantum 407,Catering,Chicago,90,$,3.3,vendor407@example.com,50
+Vendor,Nimbus 336,Security,Chicago,25,$,3.4,vendor336@example.com,50
+Vendor,Astra 388,Decoration,Seattle,20,$,3.5,vendor388@example.com,50
+Venue,Summit 130,Photography,New York,171,$$$$,4.0,venue130@example.com,500
+Vendor,Radiant 138,Community Hall,Toronto,95,$,3.8,vendor138@example.com,50
+Venue,Vertex 403,Decoration,Chicago,1158,$$$,3.2,venue403@example.com,300
+Vendor,Helix 285,AV,Toronto,79,$,4.2,vendor285@example.com,50
+Vendor,Pulse 271,Photography,Vancouver,37,$$$$,3.6,vendor271@example.com,500
+Vendor,Atlas 236,Theater,Boston,94,$$$$,4.9,vendor236@example.com,500
+Vendor,Pulse 414,Catering,New York,43,$$,3.2,vendor414@example.com,150
+Venue,Mirage 220,Community Hall,Chicago,1232,$,4.4,venue220@example.com,50
+Vendor,Nimbus 142,Security,Seattle,84,$$$$,4.1,vendor142@example.com,500
+Vendor,Quantum 416,AV,Boston,87,$$,4.7,vendor416@example.com,150
+Vendor,Orion 253,Community Hall,Los Angeles,11,$,4.7,vendor253@example.com,50
+Vendor,Lynx 307,Hotel,Toronto,46,$$$$,4.2,vendor307@example.com,500
+Vendor,Astra 420,AV,Chicago,46,$,4.9,vendor420@example.com,50
+Vendor,Orion 125,Decoration,Toronto,35,$$,4.5,vendor125@example.com,150
+Vendor,Spectrum 375,AV,Seattle,48,$$$$,3.1,vendor375@example.com,500
+Vendor,Cosmos 261,Theater,Los Angeles,78,$$,4.5,vendor261@example.com,150
+Venue,Galaxy 387,Conference Center,Chicago,1105,$$,4.3,venue387@example.com,150
+Vendor,Lynx 473,Catering,Vancouver,68,$$$,4.6,vendor473@example.com,300
+Vendor,Pulse 10,Catering,Vancouver,93,$$$,3.7,vendor10@example.com,300
+Venue,Summit 268,Outdoor,Boston,1729,$$,4.0,venue268@example.com,150
+Vendor,Quantum 320,Security,Vancouver,65,$,4.4,vendor320@example.com,50
+Venue,Vista 442,Photography,Chicago,1522,$$$$,3.1,venue442@example.com,500
+Venue,Solstice 497,Decoration,Vancouver,1334,$,3.0,venue497@example.com,50
+Venue,Vertex 113,Photography,Los Angeles,636,$$$,3.0,venue113@example.com,300
+Vendor,Spectrum 192,Hotel,Toronto,82,$,4.6,vendor192@example.com,50
+Venue,Serenity 233,Decoration,New York,975,$,4.4,venue233@example.com,50
+Vendor,Helix 370,Theater,Toronto,73,$$$,3.0,vendor370@example.com,300
+Vendor,Spectrum 108,Catering,Chicago,25,$$$$,3.1,vendor108@example.com,500
+Vendor,Orion 172,Conference Center,Los Angeles,84,$$,4.9,vendor172@example.com,150
+Venue,Harbor 374,Catering,Los Angeles,911,$,3.4,venue374@example.com,50
+Vendor,Echo 482,Conference Center,New York,76,$$,4.6,vendor482@example.com,150
+Vendor,Lyra 343,Catering,Toronto,25,$,3.1,vendor343@example.com,50
+Venue,Odyssey 234,Outdoor,Los Angeles,1851,$$$,3.7,venue234@example.com,300
+Vendor,Lynx 286,AV,Los Angeles,42,$,4.5,vendor286@example.com,50
+Vendor,Vega 177,Decoration,Vancouver,22,$$,3.4,vendor177@example.com,150
+Venue,Solstice 318,Decoration,Los Angeles,430,$,3.8,venue318@example.com,50
+Vendor,Stratus 149,Decoration,Vancouver,22,$$$$,3.1,vendor149@example.com,500
+Venue,Vista 411,Decoration,Vancouver,808,$$$,3.7,venue411@example.com,300
+Vendor,Nova 399,Hotel,New York,70,$$,4.0,vendor399@example.com,150
+Vendor,Lynx 210,Catering,New York,22,$,4.7,vendor210@example.com,50
+Venue,Echo 359,Theater,Seattle,1984,$,3.7,venue359@example.com,50
+Venue,Galaxy 259,Conference Center,Vancouver,616,$,3.2,venue259@example.com,50
+Vendor,Phoenix 245,Photography,Los Angeles,63,$$,4.0,vendor245@example.com,150
+Vendor,Radiant 128,Catering,Seattle,19,$,3.3,vendor128@example.com,50
+Vendor,Vega 133,Outdoor,Toronto,24,$$,3.2,vendor133@example.com,150
+Venue,Horizon 283,AV,Los Angeles,1262,$$$,4.2,venue283@example.com,300
+Venue,Horizon 377,Catering,Boston,1279,$,4.9,venue377@example.com,50
+Venue,Galaxy 385,Hotel,Boston,1169,$$$,3.3,venue385@example.com,300
+Venue,Oasis 225,Catering,New York,1135,$$$,4.1,venue225@example.com,300
+Vendor,Cosmos 454,Decoration,Vancouver,88,$$$,4.6,vendor454@example.com,300
+Vendor,Lyra 315,Catering,Vancouver,39,$,4.3,vendor315@example.com,50
+Venue,Eclipse 473,Conference Center,Chicago,1231,$$,3.6,venue473@example.com,150
+Venue,Echo 348,Outdoor,New York,974,$$$$,3.4,venue348@example.com,500
+Vendor,Radiant 6,AV,Vancouver,33,$,3.1,vendor6@example.com,50
+Vendor,Vertex 140,Outdoor,New York,66,$$$,3.9,vendor140@example.com,300
+Vendor,Stratus 488,Photography,New York,25,$,3.7,vendor488@example.com,50
+Vendor,Helix 429,Hotel,Vancouver,24,$$,3.1,vendor429@example.com,150
+Vendor,Comet 406,Catering,Vancouver,11,$$$$,3.2,vendor406@example.com,500
+Vendor,Astra 120,Security,Boston,52,$$,5.0,vendor120@example.com,150
+Vendor,Lyra 356,Outdoor,Vancouver,78,$$$,4.9,vendor356@example.com,300
+Vendor,Vertex 304,Security,Vancouver,23,$$$$,4.8,vendor304@example.com,500
+Vendor,Atlas 146,Catering,Los Angeles,88,$$$,4.8,vendor146@example.com,300
+Vendor,Quantum 347,Photography,Seattle,65,$$$$,4.0,vendor347@example.com,500
+Vendor,Quantum 57,Theater,Vancouver,88,$$$$,4.7,vendor57@example.com,500
+Vendor,Spectrum 458,AV,Boston,52,$$$,3.1,vendor458@example.com,300
+Vendor,Comet 78,Catering,Vancouver,83,$$$,3.3,vendor78@example.com,300
+Vendor,Lyra 296,Decoration,New York,15,$$$$,3.9,vendor296@example.com,500
+Venue,Vista 86,Catering,Boston,1084,$$$,4.7,venue86@example.com,300
+Venue,Eclipse 243,Hotel,Los Angeles,601,$$,4.9,venue243@example.com,150
+Vendor,Vertex 199,Photography,Boston,71,$$,4.3,vendor199@example.com,150
+Venue,Cascade 160,Catering,Boston,1966,$$,3.2,venue160@example.com,150
+Vendor,Pulse 25,Conference Center,Seattle,95,$$$,3.3,vendor25@example.com,300
+Venue,Cascade 36,Conference Center,Toronto,1812,$$$,4.0,venue36@example.com,300
+Vendor,Lumen 41,Decoration,Toronto,89,$,4.0,vendor41@example.com,50
+Venue,Summit 171,Catering,Boston,373,$,3.5,venue171@example.com,50
+Vendor,Radiant 155,AV,Chicago,14,$$$,4.8,vendor155@example.com,300
+Vendor,Comet 391,AV,Vancouver,86,$$$,3.8,vendor391@example.com,300
+Vendor,Nova 358,Community Hall,Toronto,64,$,4.6,vendor358@example.com,50
+Vendor,Lyra 348,Outdoor,Boston,99,$$$,3.6,vendor348@example.com,300
+Vendor,Atlas 445,Security,Los Angeles,58,$,4.3,vendor445@example.com,50
+Vendor,Astra 234,Security,Vancouver,93,$$$$,3.0,vendor234@example.com,500
+Venue,Odyssey 96,Hotel,Vancouver,1813,$$$$,4.9,venue96@example.com,500
+Vendor,Astra 64,Theater,Boston,19,$$$,3.3,vendor64@example.com,300
+Venue,Nebula 241,Photography,New York,1414,$,3.3,venue241@example.com,50
+Vendor,Vega 243,Catering,Los Angeles,38,$,3.1,vendor243@example.com,50
+Vendor,Cosmos 75,Security,Seattle,71,$$$$,4.7,vendor75@example.com,500
+Vendor,Astra 191,Conference Center,New York,96,$,4.1,vendor191@example.com,50
+Venue,Harbor 461,Outdoor,Los Angeles,695,$$,4.3,venue461@example.com,150
+Vendor,Vega 54,AV,Boston,66,$$$,3.8,vendor54@example.com,300
+Vendor,Pulse 389,AV,Los Angeles,87,$$$$,4.9,vendor389@example.com,500
+Venue,Odyssey 207,AV,Chicago,412,$,4.9,venue207@example.com,50
+Venue,Solstice 393,AV,Toronto,114,$,4.9,venue393@example.com,50
+Vendor,Vega 295,Conference Center,New York,56,$$,3.9,vendor295@example.com,150
+Venue,Vista 398,Hotel,Boston,322,$$$,3.5,venue398@example.com,300
+Vendor,Astra 267,Security,Vancouver,63,$$$,4.0,vendor267@example.com,300
+Vendor,Spectrum 349,Community Hall,Chicago,57,$$$$,3.5,vendor349@example.com,500
+Venue,Horizon 218,Theater,New York,1973,$$$,3.7,venue218@example.com,300
+Venue,Odyssey 5,Community Hall,Los Angeles,1889,$$$$,3.4,venue5@example.com,500
+Vendor,Nova 269,Hotel,Boston,62,$,3.3,vendor269@example.com,50
+Vendor,Orion 143,Photography,Los Angeles,27,$$$$,4.7,vendor143@example.com,500
+Vendor,Pulse 430,Photography,Los Angeles,12,$$$,5.0,vendor430@example.com,300
+Vendor,Helix 113,Community Hall,Los Angeles,65,$$$$,3.9,vendor113@example.com,500
+Vendor,Lumen 239,Conference Center,Toronto,50,$$$$,4.7,vendor239@example.com,500
+Vendor,Vega 47,Outdoor,New York,80,$,3.1,vendor47@example.com,50
+Vendor,Orion 226,Theater,Boston,35,$,5.0,vendor226@example.com,50
+Vendor,Spectrum 184,Security,Toronto,57,$,4.2,vendor184@example.com,50
+Venue,Zenith 99,Conference Center,Toronto,1101,$$$$,3.4,venue99@example.com,500
+Vendor,Lyra 305,Catering,Chicago,20,$$$,3.6,vendor305@example.com,300
+Vendor,Vertex 228,Catering,New York,52,$$,3.0,vendor228@example.com,150
+Vendor,Helix 74,Catering,New York,23,$$$$,4.1,vendor74@example.com,500
+Venue,Vista 407,Decoration,Boston,1409,$$$,4.0,venue407@example.com,300
+Vendor,Stratus 3,Community Hall,Chicago,49,$$$$,3.5,vendor3@example.com,500
+Venue,Crown 48,Theater,Los Angeles,645,$$$,4.0,venue48@example.com,300
+Venue,Oasis 33,Catering,Seattle,212,$$$$,3.5,venue33@example.com,500
+Vendor,Vega 280,Conference Center,Vancouver,70,$$$$,3.7,vendor280@example.com,500
+Vendor,Lyra 340,Conference Center,Vancouver,47,$$$$,4.4,vendor340@example.com,500
+Venue,Vertex 201,Catering,Los Angeles,267,$$$,4.4,venue201@example.com,300
+Venue,Momentum 135,Decoration,Boston,1455,$$$,3.0,venue135@example.com,300
+Venue,Odyssey 28,Community Hall,Chicago,968,$$$$,3.5,venue28@example.com,500
+Vendor,Radiant 381,Hotel,New York,43,$$$,3.4,vendor381@example.com,300
+Venue,Momentum 231,Catering,Vancouver,493,$,3.5,venue231@example.com,50
+Venue,Momentum 490,AV,Los Angeles,1865,$$$$,4.5,venue490@example.com,500
+Vendor,Orion 273,Decoration,Boston,65,$$$,3.1,vendor273@example.com,300
+Venue,Galaxy 379,Catering,Vancouver,1444,$$$,4.9,venue379@example.com,300
+Venue,Summit 289,Security,New York,1454,$$$$,4.0,venue289@example.com,500
+Venue,Momentum 419,Photography,Los Angeles,1101,$$$$,3.7,venue419@example.com,500
+Vendor,Vertex 175,Security,Vancouver,89,$$$,4.6,vendor175@example.com,300
+Venue,Aurora 392,Conference Center,Vancouver,760,$$$$,4.5,venue392@example.com,500
+Vendor,Pulse 93,AV,Los Angeles,58,$$,4.1,vendor93@example.com,150
+Venue,Summit 499,Theater,Chicago,1197,$,5.0,venue499@example.com,50
+Venue,Eclipse 139,Hotel,New York,691,$,4.4,venue139@example.com,50
+Venue,Odyssey 63,Photography,Toronto,1359,$$,4.2,venue63@example.com,150
+Venue,Mirage 472,Photography,Los Angeles,707,$$$$,5.0,venue472@example.com,500
+Vendor,Spectrum 148,Security,Toronto,19,$,3.3,vendor148@example.com,50
+Venue,Oasis 129,AV,Seattle,1432,$$$$,3.4,venue129@example.com,500
+Vendor,Orion 477,Photography,Boston,69,$$$,4.0,vendor477@example.com,300
+Vendor,Vega 21,Conference Center,Vancouver,53,$$$,4.1,vendor21@example.com,300
+Vendor,Nimbus 339,Catering,New York,70,$$,3.4,vendor339@example.com,150
+Vendor,Nimbus 463,Outdoor,Chicago,83,$$,5.0,vendor463@example.com,150
+Venue,Oasis 65,Catering,Toronto,1727,$$$,3.4,venue65@example.com,300
+Vendor,Pulse 313,AV,Los Angeles,33,$$,4.5,vendor313@example.com,150
+Venue,Cascade 15,Community Hall,Toronto,692,$,4.9,venue15@example.com,50
+Venue,Horizon 157,Hotel,Toronto,1211,$$,4.7,venue157@example.com,150
+Venue,Cascade 41,Outdoor,Boston,1920,$,4.9,venue41@example.com,50
+Venue,Horizon 493,Decoration,Vancouver,435,$,3.4,venue493@example.com,50
+Venue,Odyssey 380,Catering,New York,1131,$,3.5,venue380@example.com,50
+Venue,Mirage 188,Decoration,Los Angeles,1703,$$$$,4.6,venue188@example.com,500
+Vendor,Lynx 264,Conference Center,Seattle,84,$$$$,4.2,vendor264@example.com,500
+Venue,Crown 217,Photography,Chicago,1326,$$$,4.0,venue217@example.com,300
+Vendor,Vega 292,Security,Boston,84,$,3.4,vendor292@example.com,50
+Venue,Oasis 53,Catering,Boston,265,$$$,4.5,venue53@example.com,300
+Vendor,Vertex 379,Decoration,Chicago,46,$$,3.9,vendor379@example.com,150
+Venue,Vertex 338,Conference Center,New York,1623,$$$$,3.9,venue338@example.com,500
+Vendor,Stratus 249,Photography,Boston,90,$$,3.3,vendor249@example.com,150
+Vendor,Lyra 220,Conference Center,Los Angeles,98,$$,4.3,vendor220@example.com,150
+Vendor,Comet 225,Community Hall,Seattle,91,$$,5.0,vendor225@example.com,150
+Venue,Odyssey 296,Outdoor,Los Angeles,640,$$$,4.2,venue296@example.com,300
+Vendor,Lyra 202,Security,Vancouver,25,$,4.9,vendor202@example.com,50
+Venue,Vertex 252,Outdoor,Boston,414,$$,4.7,venue252@example.com,150
+Vendor,Astra 227,Security,Boston,64,$$,4.5,vendor227@example.com,150
+Venue,Serenity 462,Hotel,Vancouver,1799,$,3.4,venue462@example.com,50
+Venue,Cascade 456,Security,Toronto,1618,$$,3.8,venue456@example.com,150
+Vendor,Vega 497,Photography,Boston,88,$,3.3,vendor497@example.com,50
+Vendor,Pulse 316,Community Hall,Boston,65,$$,4.3,vendor316@example.com,150
+Vendor,Echo 363,Hotel,Vancouver,44,$$,3.5,vendor363@example.com,150
+Venue,Harbor 270,Outdoor,Chicago,1194,$,3.1,venue270@example.com,50
+Venue,Echo 202,Community Hall,Toronto,1613,$$$$,4.8,venue202@example.com,500
+Venue,Crown 162,Catering,Chicago,1771,$$,3.6,venue162@example.com,150
+Vendor,Quantum 56,Conference Center,Chicago,28,$,3.4,vendor56@example.com,50
+Vendor,Lyra 230,Catering,Toronto,54,$$$$,3.3,vendor230@example.com,500
+Venue,Harbor 402,Security,Seattle,1245,$$$$,4.2,venue402@example.com,500
+Vendor,Vega 203,Theater,New York,35,$$$$,4.7,vendor203@example.com,500
+Venue,Solstice 477,Security,Los Angeles,629,$$,3.7,venue477@example.com,150
+Vendor,Astra 322,Photography,Seattle,73,$$$,3.0,vendor322@example.com,300
+Vendor,Echo 272,Community Hall,Boston,24,$$$,4.5,vendor272@example.com,300
+Venue,Nebula 106,Decoration,Chicago,1204,$$$,3.4,venue106@example.com,300
+Vendor,Orion 66,Hotel,Boston,67,$,4.3,vendor66@example.com,50
+Venue,Aurora 390,Conference Center,Toronto,1152,$$,4.1,venue390@example.com,150
+Venue,Eclipse 2,Decoration,Los Angeles,1502,$$$$,4.9,venue2@example.com,500
+Vendor,Vertex 438,Photography,Seattle,22,$$$,4.7,vendor438@example.com,300
+Vendor,Spectrum 483,Decoration,Boston,52,$,3.2,vendor483@example.com,50
+Vendor,Lyra 62,Community Hall,Los Angeles,98,$,4.0,vendor62@example.com,50
+Venue,Oasis 81,Community Hall,Vancouver,732,$$$$,4.2,venue81@example.com,500
+Venue,Vertex 206,Catering,Boston,1848,$,4.2,venue206@example.com,50
+Venue,Harbor 35,Community Hall,Chicago,1298,$,4.7,venue35@example.com,50
+Vendor,Radiant 276,Hotel,Chicago,79,$$$,4.8,vendor276@example.com,300
+Vendor,Radiant 9,Photography,Boston,39,$$$$,4.4,vendor9@example.com,500
+Venue,Nebula 428,AV,Boston,1540,$$$,4.0,venue428@example.com,300
+Venue,Vertex 455,Conference Center,Seattle,227,$$$,4.7,venue455@example.com,300
+Venue,Odyssey 367,Photography,New York,1258,$$,3.7,venue367@example.com,150
+Venue,Vertex 92,Conference Center,Los Angeles,882,$$$$,3.3,venue92@example.com,500
+Venue,Horizon 340,Photography,New York,583,$$,4.6,venue340@example.com,150
+Vendor,Orion 398,Outdoor,Boston,23,$$$$,4.6,vendor398@example.com,500
+Vendor,Echo 65,Photography,New York,100,$$$,4.3,vendor65@example.com,300
+Venue,Zenith 346,Photography,Chicago,538,$$$$,4.3,venue346@example.com,500
+Vendor,Radiant 277,Hotel,Boston,25,$$,3.3,vendor277@example.com,150
+Venue,Odyssey 242,Theater,New York,1655,$$$$,3.4,venue242@example.com,500
+Venue,Solstice 14,AV,Chicago,1152,$,4.3,venue14@example.com,50
+Venue,Harbor 316,Decoration,Vancouver,1373,$$,4.9,venue316@example.com,150
+Vendor,Atlas 101,Outdoor,Vancouver,56,$$,4.5,vendor101@example.com,150
+Venue,Solstice 388,Photography,Chicago,1218,$$$$,4.7,venue388@example.com,500
+Venue,Cascade 274,Outdoor,Toronto,197,$$$,3.2,venue274@example.com,300
+Venue,Solstice 167,AV,Seattle,1097,$$$$,4.4,venue167@example.com,500
+Vendor,Radiant 341,Decoration,Chicago,90,$$$$,3.9,vendor341@example.com,500
+Vendor,Stratus 493,Security,New York,15,$$,4.9,vendor493@example.com,150
+Vendor,Cosmos 147,Catering,Vancouver,16,$$$,4.4,vendor147@example.com,300
+Vendor,Vega 319,Security,Toronto,62,$$,3.6,vendor319@example.com,150
+Venue,Horizon 485,Theater,Chicago,413,$$$,5.0,venue485@example.com,300
+Vendor,Spectrum 481,Decoration,Seattle,83,$$$,4.9,vendor481@example.com,300
+Vendor,Nimbus 5,Photography,Boston,56,$$,5.0,vendor5@example.com,150
+Vendor,Quantum 332,Hotel,Boston,57,$$,3.2,vendor332@example.com,150
+Venue,Zenith 244,Outdoor,Seattle,1707,$$,4.4,venue244@example.com,150
+Vendor,Echo 67,Community Hall,Chicago,49,$$,4.9,vendor67@example.com,150
+Vendor,Helix 376,Photography,New York,58,$$$$,3.5,vendor376@example.com,500
+Vendor,Astra 63,Conference Center,Seattle,12,$,4.8,vendor63@example.com,50
+Vendor,Nova 187,Catering,Los Angeles,11,$$$,3.6,vendor187@example.com,300
+Venue,Zenith 190,Security,New York,738,$,3.3,venue190@example.com,50
+Vendor,Cosmos 283,AV,Los Angeles,72,$$$,4.8,vendor283@example.com,300
+Vendor,Cosmos 200,Decoration,Vancouver,97,$,4.4,vendor200@example.com,50
+Venue,Galaxy 476,Conference Center,Boston,1223,$,3.4,venue476@example.com,50
+Vendor,Comet 182,Outdoor,Boston,61,$$$,4.4,vendor182@example.com,300
+Vendor,Nova 11,Hotel,Boston,52,$$$,4.3,vendor11@example.com,300
+Venue,Oasis 59,Catering,Toronto,1063,$$$$,4.5,venue59@example.com,500
+Venue,Harbor 475,Security,Seattle,1349,$$$$,4.8,venue475@example.com,500
+Vendor,Orion 61,Photography,New York,48,$$,3.5,vendor61@example.com,150
+Vendor,Vega 357,AV,Toronto,58,$$$,3.5,vendor357@example.com,300
+Vendor,Cosmos 248,Theater,Vancouver,66,$$$,4.9,vendor248@example.com,300
+Venue,Zenith 253,Conference Center,Vancouver,504,$,3.9,venue253@example.com,50
+Venue,Galaxy 22,Conference Center,Boston,759,$$,4.4,venue22@example.com,150
+Venue,Vista 314,Security,New York,597,$$,4.9,venue314@example.com,150
+Venue,Odyssey 460,Photography,Los Angeles,1828,$$,3.4,venue460@example.com,150
+Venue,Oasis 161,Photography,Toronto,1236,$,3.3,venue161@example.com,50
+Venue,Galaxy 277,Catering,Chicago,1798,$$$,3.8,venue277@example.com,300
+Vendor,Phoenix 456,Decoration,Los Angeles,97,$$,3.5,vendor456@example.com,150
+Venue,Mirage 192,Theater,Toronto,1410,$$,4.3,venue192@example.com,150
+Venue,Harbor 386,Conference Center,Los Angeles,979,$,4.0,venue386@example.com,50
+Vendor,Vertex 306,Hotel,Seattle,82,$$,3.0,vendor306@example.com,150
+Venue,Eclipse 414,Security,Los Angeles,623,$,3.3,venue414@example.com,50
+Venue,Mirage 492,Catering,Vancouver,1549,$$$,3.0,venue492@example.com,300
+Venue,Momentum 344,Hotel,Chicago,1331,$,4.2,venue344@example.com,50
+Vendor,Comet 270,Photography,New York,28,$$,4.8,vendor270@example.com,150
+Venue,Crown 309,Community Hall,Los Angeles,375,$,3.8,venue309@example.com,50
+Vendor,Vega 162,Community Hall,Toronto,54,$,4.3,vendor162@example.com,50
+Venue,Harbor 131,Decoration,Chicago,394,$,4.1,venue131@example.com,50
+Vendor,Spectrum 164,Community Hall,Seattle,10,$$$,3.1,vendor164@example.com,300
+Vendor,Helix 372,Photography,New York,74,$$$,4.8,vendor372@example.com,300
+Venue,Vista 100,Community Hall,Vancouver,590,$$$,3.8,venue100@example.com,300
+Venue,Mirage 373,Conference Center,New York,1918,$,3.1,venue373@example.com,50
+Venue,Harbor 88,Hotel,Seattle,1864,$$,4.3,venue88@example.com,150
+Venue,Vertex 459,Decoration,Los Angeles,268,$$,4.1,venue459@example.com,150
+Venue,Mirage 331,Catering,New York,115,$$$$,3.5,venue331@example.com,500
+Venue,Nebula 215,Photography,Toronto,1730,$$,3.7,venue215@example.com,150
+Venue,Odyssey 467,AV,Los Angeles,1056,$$$,4.5,venue467@example.com,300
+Venue,Vista 122,Hotel,New York,374,$$,3.2,venue122@example.com,150
+Vendor,Lumen 115,Decoration,Boston,42,$$$$,3.1,vendor115@example.com,500
+Venue,Nebula 21,Decoration,Chicago,686,$$,4.9,venue21@example.com,150
+Vendor,Phoenix 201,Security,Los Angeles,57,$$$,4.3,vendor201@example.com,300
+Venue,Nebula 72,Community Hall,Vancouver,732,$$$,4.5,venue72@example.com,300
+Venue,Mirage 107,Hotel,Toronto,1695,$$$,4.7,venue107@example.com,300
+Venue,Mirage 271,Conference Center,Toronto,779,$$$,4.2,venue271@example.com,300
+Vendor,Nimbus 361,Catering,Boston,22,$$$$,4.7,vendor361@example.com,500
+Venue,Zenith 436,Outdoor,Los Angeles,1580,$$$,4.8,venue436@example.com,300
+Venue,Horizon 103,Outdoor,Vancouver,381,$$$$,3.0,venue103@example.com,500
