@@ -34,6 +34,9 @@ if "dash_section" not in st.session_state or st.session_state.dash_section not i
 # =====================
 #   SESSION DEFAULTS
 # =====================
+# seção atual do admin (launcher)
+if "admin_section" not in st.session_state:
+    st.session_state.admin_section = "Users"
 if "route" not in st.session_state:
     st.session_state.route = "landing"
 if "users" not in st.session_state:
@@ -635,19 +638,68 @@ TAB_DESC = {
     "Site Charts": "Marketing-style demo charts.",
 }
 
+TAB_DESC = {
+    "Users": "Manage accounts, roles and status.",
+    "Analytics": "KPIs, trends and tables.",
+    "Disputes": "Flagged content & payment issues.",
+    "Communications": "Broadcast email/SMS to segments.",
+    "Promo/Boost": "Create and manage boost campaigns.",
+    "Data Clients": "Export anonymized datasets to B2B.",
+    "Site Charts": "Marketing-style demo charts.",
+}
+
+def _admin_nav_buttons():
+    """Launcher de botões para trocar de seção."""
+    labels = [
+        ("👥 Users","Users"),
+        ("📈 Analytics","Analytics"),
+        ("🚩 Disputes","Disputes"),
+        ("📣 Communications","Communications"),
+        ("🚀 Promo/Boost","Promo/Boost"),
+        ("📦 Data Clients","Data Clients"),
+        ("📊 Site Charts","Site Charts"),
+    ]
+    cols = st.columns(7)
+    for i,(lbl,key) in enumerate(labels):
+        active = (st.session_state.admin_section == key)
+        style = "border:2px solid #ef4444;" if active else "border:1px solid #e5e7eb;"
+        if cols[i].button(lbl, use_container_width=True, key=f"adminbtn-{key}"):
+            st.session_state.admin_section = key
+            st.rerun()
+        cols[i].markdown(f"<div style='text-align:center;font-size:12px;color:#6b7280;margin-top:2px;{''}'></div>", unsafe_allow_html=True)
+
 def render_admin_panel():
     if not _require_admin():
         return
 
-    st.title("🧠 Admin Superpanel (Internal Ops)")
-    tabs = st.tabs([
-        "👥 Users","📈 Analytics","🚩 Disputes",
-        "📣 Communications","🚀 Promo/Boost","📦 Data Clients","📊 Site Charts"
-    ])
+    # Top bar do Admin: Back + sino que só zera
+    top_l, top_r = st.columns([6,6])
+    with top_l:
+        st.title("🧠 Admin Superpanel (Internal Ops)")
+    with top_r:
+        c1, c2 = st.columns([1,1])
+        if c1.button("↩ Back to Dashboard", use_container_width=True):
+            nav("dashboard")
+        # sino apenas zera
+        unread = unread_count()
+        notif_label = f"🔔 Notifications ({unread})" if unread and not st.session_state.get("notif_badge_cleared") else "🔔 Notifications"
+        if c2.button(notif_label, use_container_width=True, key="admin-notif-reset"):
+            for n in st.session_state.notifications:
+                n["read"] = True
+            st.session_state.notif_badge_cleared = True
+            st.rerun()
 
-    # ---------- 1) Users ----------
-    with tabs[0]:
-        st.caption(TAB_DESC["Users"])
+    # Launcher de seções
+    st.markdown("#### Admin Sections")
+    _admin_nav_buttons()
+    st.divider()
+
+    # Descrição curta da seção ativa
+    sec = st.session_state.admin_section
+    st.caption(TAB_DESC.get(sec, ""))
+
+    # ========== Render de cada seção ==========
+    if sec == "Users":
         st.subheader("User Management")
         df = _user_rows_df()
         st.dataframe(df, use_container_width=True)
@@ -689,9 +741,7 @@ def render_admin_panel():
                 st.success(msg) if ok else st.error(msg)
                 if ok: st.rerun()
 
-    # ---------- 2) Analytics ----------
-    with tabs[1]:
-        st.caption(TAB_DESC["Analytics"])
+    elif sec == "Analytics":
         st.subheader("Analytics & Reporting Hub")
         tx = st.session_state.transactions.copy()
         rfps = pd.DataFrame(st.session_state.rfp_history) if st.session_state.get("rfp_history") else pd.DataFrame(columns=["submitted_at"])
@@ -731,9 +781,7 @@ def render_admin_panel():
             st.dataframe(rfps.sort_values("submitted_at", ascending=False).head(30), use_container_width=True, height=260)
         st.markdown("</div>", unsafe_allow_html=True)
 
-    # ---------- 3) Disputes ----------
-    with tabs[2]:
-        st.caption(TAB_DESC["Disputes"])
+    elif sec == "Disputes":
         st.subheader("Flagged Content / Disputes")
         disp = st.session_state.admin_disputes
         if not disp:
@@ -751,9 +799,7 @@ def render_admin_panel():
                     if new != row["status"]:
                         row["status"] = new
 
-    # ---------- 4) Communications ----------
-    with tabs[3]:
-        st.caption(TAB_DESC["Communications"])
+    elif sec == "Communications":
         st.subheader("Platform-Wide Communications (email/SMS)")
         seg = st.selectbox("Segment", ["All Users","All Vendors","All Venues","All NPOs/Clients"])
         subject = st.text_input("Subject")
@@ -768,9 +814,7 @@ def render_admin_panel():
         st.markdown("**History**")
         st.dataframe(pd.DataFrame(st.session_state.broadcast_log), use_container_width=True, height=240)
 
-    # ---------- 5) Promo/Boost ----------
-    with tabs[4]:
-        st.caption(TAB_DESC["Promo/Boost"])
+    elif sec == "Promo/Boost":
         st.subheader("Promo / Boost Campaign Manager")
         dfc = pd.DataFrame(st.session_state.promo_campaigns)
         st.dataframe(dfc, use_container_width=True)
@@ -784,14 +828,14 @@ def render_admin_panel():
         st.write("")
         if st.button("Create campaign"):
             new_id = max([c["id"] for c in st.session_state.promo_campaigns]+[7000]) + 1
-            st.session_state.promo_campaigns.append({"id":new_id,"name":name or f"Campaign {new_id}",
-                                                     "segment":seg or "General","budget":int(budget),"status":"Active"})
+            st.session_state.promo_campaigns.append({
+                "id":new_id,"name":name or f"Campaign {new_id}",
+                "segment":seg or "General","budget":int(budget),"status":"Active"
+            })
             st.success("Campaign created.")
             st.rerun()
 
-    # ---------- 6) Data Clients ----------
-    with tabs[5]:
-        st.caption(TAB_DESC["Data Clients"])
+    elif sec == "Data Clients":
         st.subheader("Data Resale & Dashboard Clients (B2B)")
         dc = pd.DataFrame(st.session_state.data_clients)
         st.dataframe(dc, use_container_width=True)
@@ -808,30 +852,19 @@ def render_admin_panel():
                                data=rfps.to_csv(index=False).encode("utf-8"),
                                file_name="rfp_history.csv", mime="text/csv")
 
-    # ---------- 7) Site Charts ----------
-    with tabs[6]:
-        st.caption(TAB_DESC["Site Charts"])
+    elif sec == "Site Charts":
         st.subheader("Demo Charts (marketing style)")
-
         c1, c2 = st.columns(2)
         with c1:
             st.markdown("**Traffic Trend**")
             st.line_chart(_demo_series(days=30, base=200, volatility=25).set_index("date"))
         with c2:
             st.markdown("**Signups / Conversions**")
-            df = pd.DataFrame({
-                "metric": ["Signups","Verified","Paying"],
-                "value": [420, 310, 120]
-            }).set_index("metric")
+            df = pd.DataFrame({"metric":["Signups","Verified","Paying"],"value":[420,310,120]}).set_index("metric")
             st.bar_chart(df)
-
         st.markdown("**Category Performance**")
-        df2 = pd.DataFrame({
-            "Venue": [60, 72, 68, 80, 75],
-            "Vendors": [40, 55, 62, 70, 66],
-        }, index=[f"W{i}" for i in range(1,6)])
+        df2 = pd.DataFrame({"Venue":[60,72,68,80,75],"Vendors":[40,55,62,70,66]}, index=[f"W{i}" for i in range(1,6)])
         st.area_chart(df2)
-
 # =====================
 #        ROUTES
 # =====================
@@ -949,3 +982,4 @@ if st.session_state.get("_pending_nav"):
 
 # === Support only where allowed ===
 render_help_panel()
+
