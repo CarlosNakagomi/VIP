@@ -693,7 +693,7 @@ if "data_clients" not in st.session_state:
         {"id":3002, "name":"CivicData", "plan":"Basic (Annual)", "status":"Trial"},
     ]
 
-# Seed Admin user
+# Seed Admin user (usuario: admin, senha: admin)
 if "users" in st.session_state and "admin" not in st.session_state.users:
     st.session_state.users["admin"] = {
         "password": "admin", "full_name":"Platform Admin",
