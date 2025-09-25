@@ -95,10 +95,6 @@ if "mail_thread" not in st.session_state:
 # Painéis / badge
 if "help_open" not in st.session_state:
     st.session_state.help_open = False
-if "notif_open" not in st.session_state:
-    st.session_state.notif_open = False
-if "help_chat" not in st.session_state:
-    st.session_state.help_chat = [{"by":"Carol","ts":"2025-09-22 09:00","text":"Hi! Need help with RFPs or vendors?"}]
 if "notif_badge_cleared" not in st.session_state:
     st.session_state.notif_badge_cleared = False
 
@@ -114,16 +110,11 @@ LOGO_PATH = ROOT / "assets" / "logo.png"
 DATA_PATH = ROOT / "data" / "marketplace_clean_numeric.csv"
 
 # =====================
-# STYLES (theme inspirado no Builder)
+# STYLES
 # =====================
 st.markdown(
     """
     <style>
-      :root{
-        --vip-bg:#0b1220; --vip-card:#0f172a; --vip-soft:#111827; --vip-soft2:#0b132a;
-        --vip-ink:#e5e7eb; --vip-ink2:#94a3b8; --vip-accent:#22c55e; --vip-accent-2:#38bdf8;
-        --vip-danger:#ef4444; --vip-warn:#f59e0b;
-      }
       .vip-wrap{padding:0 8px 40px;}
       .vip-hero{display:flex;flex-direction:column;align-items:center;gap:10px;margin:20px auto;}
       .vip-badge{display:inline-block;padding:6px 10px;border-radius:9999px;background:#0ea5e9;color:white;font-size:12px;}
@@ -132,17 +123,15 @@ st.markdown(
       .vip-ctas{display:flex;gap:12px;justify-content:center;width:100%;max-width:720px;margin:12px 0;}
       .vip-footer{color:#6b7280;text-align:center;margin-top:18px;}
       .muted{color:#6b7280;font-size:12px;}
-      /* Cards métricos */
       .kpi{background:#ecfdf5;border:1px solid #d1fae5;border-radius:14px;padding:16px;box-shadow:0 6px 14px rgba(0,0,0,.08);}
       .kpi h4{margin:0;color:#065f46;font-weight:700;font-size:13px}
       .kpi .v{margin-top:6px;color:#047857;font-weight:800;font-size:26px}
-      /* Charts container */
       .vip-card{background:white;border:1px solid #e5e7eb;border-radius:12px;padding:14px;box-shadow:0 6px 14px rgba(0,0,0,.06);}
-      /* Float panels */
       .bubble-u { background:#e5f0ff; padding:8px 10px; border-radius:10px; margin:6px 0; display:inline-block; }
       .bubble-a { background:#dcfce7; padding:8px 10px; border-radius:10px; margin:6px 0; display:inline-block; }
     </style>
-    """, unsafe_allow_html=True
+    """,
+    unsafe_allow_html=True,
 )
 
 # =====================
@@ -210,17 +199,6 @@ def logout():
 
 def unread_count() -> int:
     return sum(1 for n in st.session_state.notifications if not n.get("read", False))
-def _notif_sort_key(n):
-    try:
-        return datetime.strptime(n.get("ts", ""), "%Y-%m-%d %H:%M")
-    except Exception:
-        return datetime.min
-def _ensure_notif_read_map():
-    if "notif_read_map" not in st.session_state:
-        st.session_state.notif_read_map = {n["id"]: n.get("read", False) for n in st.session_state.notifications}
-    else:
-        for n in st.session_state.notifications:
-            st.session_state.notif_read_map.setdefault(n["id"], n.get("read", False))
 
 # =====================
 #  MARKETPLACE
@@ -298,7 +276,7 @@ def _reset_rfp_state():
 
 def render_rfp(with_topbar: bool = True, scope: str = "rfp_page"):
     if with_topbar:
-        render_topbar_right(scope=scope)
+        render_topbar_right(scope=scope, hide_support=False)
 
     st.header("📝 RFP Submission Wizard")
 
@@ -346,6 +324,7 @@ def render_rfp(with_topbar: bool = True, scope: str = "rfp_page"):
             "ts": datetime.now().strftime("%Y-%m-%d %H:%M"),
             "ntype": "info", "read": False,
         })
+        # mostra badge novamente
         st.session_state.notif_badge_cleared = False
 
         st.success("✅ RFP submitted successfully!")
@@ -389,39 +368,18 @@ def render_transactions():
     st.dataframe(df.reset_index(drop=True), use_container_width=True)
 
 # =====================
-#  NOTIFICATIONS
+#  NOTIFICATIONS (center)
 # =====================
 def render_notifications():
     st.subheader("🔔 Notification Center")
-    _ensure_notif_read_map()
-    read_map = st.session_state.notif_read_map
-    notifs = sorted(st.session_state.notifications, key=_notif_sort_key, reverse=True)
-
+    notifs = sorted(st.session_state.notifications, key=lambda n: n.get("ts",""), reverse=True)
     if not notifs:
         st.info("No notifications yet.")
         return
-
-    updated_map = dict(read_map)
     for n in notifs:
         with st.container(border=True):
-            cols = st.columns([8, 2])
-            tone = "🆕" if not read_map.get(n["id"], False) else "✅"
-            cols[0].markdown(
-                f"**{tone} {n.get('title','(no title)')}**  \n"
-                f"{n.get('body','')}  \n"
-                f"<span class='muted'>{n.get('ts','')}</span>",
-                unsafe_allow_html=True,
-            )
-            chk = cols[1].checkbox(
-                "Read",
-                value=read_map.get(n["id"], False),
-                key=f"notif_read_{n['id']}",
-            )
-            updated_map[n["id"]] = chk
-
-    st.session_state.notif_read_map = updated_map
-    for n in st.session_state.notifications:
-        n["read"] = updated_map.get(n["id"], False)
+            st.markdown(f"**{n.get('title','(no title)')}**  \n{n.get('body','')}  \n"
+                        f"<span class='muted'>{n.get('ts','')}</span>", unsafe_allow_html=True)
 
 # =====================
 #  MESSAGING
@@ -475,34 +433,34 @@ def render_messaging_center():
                 st.rerun()
 
 # =====================
-#  TOP BAR (notifications + support)
+#  TOP BAR (sino que apenas zera + suporte opcional)
 # =====================
-def render_topbar_right(scope: str = "dashboard"):
-    if "notif_open" not in st.session_state:
-        st.session_state.notif_open = False
-    if "notif_badge_cleared" not in st.session_state:
-        st.session_state.notif_badge_cleared = False
-    if "help_open" not in st.session_state:
-        st.session_state.help_open = False
-
+def render_topbar_right(scope: str = "dashboard", hide_support: bool = False):
     left, right = st.columns([7, 3], gap="small")
     with right:
-        b1, b2 = st.columns(2, gap="small")
+        bcols = st.columns(2 if not hide_support else 1, gap="small")
+
+        # NOTIFICATIONS: apenas zera
         unread = unread_count()
         show_badge = (unread > 0) and (not st.session_state.notif_badge_cleared)
         notif_label = f"🔔 Notifications ({unread})" if show_badge else "🔔 Notifications"
-        if b1.button(notif_label, key=f"btn_notif_{scope}", use_container_width=True):
+        if bcols[0].button(notif_label, key=f"btn_notif_{scope}", use_container_width=True):
+            # marca tudo como lido e limpa o badge, não abre painel
+            for n in st.session_state.notifications:
+                n["read"] = True
             st.session_state.notif_badge_cleared = True
-            st.session_state.notif_open = not st.session_state.notif_open
-            st.rerun()
-        support_open = st.session_state.help_open
-        support_label = "💬 Support" if not support_open else "💬 Hide chat"
-        if b2.button(support_label, key=f"btn_support_{scope}", use_container_width=True):
-            st.session_state.help_open = not support_open
             st.rerun()
 
+        # SUPPORT: só quando não estiver oculto
+        if not hide_support:
+            support_open = st.session_state.get("help_open", False)
+            support_label = "💬 Support" if not support_open else "💬 Hide chat"
+            if bcols[1].button(support_label, key=f"btn_support_{scope}", use_container_width=True):
+                st.session_state.help_open = not support_open
+                st.rerun()
+
 # =====================
-# Support panel (Carol)
+# Support panel (Carol) — NÃO usado no Admin
 # =====================
 HELP_WELCOME = (
     "Welcome! I'm Carol, your virtual assistant. "
@@ -511,6 +469,8 @@ HELP_WELCOME = (
 )
 HELP_PLACEHOLDER = "Type your question here or describe what you need…"
 def render_help_panel():
+    if st.session_state.route == "admin":  # não mostrar no Admin
+        return
     if not st.session_state.get("help_open", False):
         return
     st.markdown(
@@ -532,75 +492,6 @@ def render_help_panel():
         """,
         unsafe_allow_html=True,
     )
-
-# =====================
-#  FLOAT NOTIF PANEL
-# =====================
-def render_notif_panel():
-    if not st.session_state.get("notif_open", False):
-        return
-    _ensure_notif_read_map()
-    read_map = st.session_state.notif_read_map
-    notifs = sorted(st.session_state.notifications, key=_notif_sort_key, reverse=True)
-
-    st.markdown(
-        """
-        <div style="position: fixed; top: 86px; right: 16px; width: 420px; height: 540px;
-            background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 0;
-            box-shadow: 0 12px 30px rgba(0,0,0,.18); z-index: 100000; overflow: hidden;">
-            <div style="padding:10px 14px; background:#111827; color:#fff; font-weight:700;">
-                🔔 Notifications
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    with st.container():
-        st.markdown(
-            "<div style='height: 472px; width: 420px; position: fixed; top: 134px; right: 16px; "
-            "background:#f9fafb; padding:10px 14px; overflow-y:auto; z-index:100001; border-radius:0 0 12px 12px;'>",
-            unsafe_allow_html=True,
-        )
-        updated_map = dict(read_map)
-        if not notifs:
-            st.info("No notifications yet.")
-        else:
-            for n in notifs:
-                with st.container(border=True):
-                    cols = st.columns([8, 2])
-                    tone = "🆕" if not read_map.get(n["id"], False) else "✅"
-                    cols[0].markdown(
-                        f"**{tone} {n.get('title','(no title)')}**  \n"
-                        f"{n.get('body','')}  \n"
-                        f"<span class='muted'>{n.get('ts','')}</span>",
-                        unsafe_allow_html=True,
-                    )
-                    chk = cols[1].checkbox(
-                        "Read",
-                        value=read_map.get(n["id"], False),
-                        key=f"notif_float_read_{n['id']}",
-                    )
-                    updated_map[n["id"]] = chk
-        st.session_state.notif_read_map = updated_map
-        for n in st.session_state.notifications:
-            n["read"] = updated_map.get(n["id"], False)
-        st.markdown("</div>", unsafe_allow_html=True)
-
-        st.markdown(
-            "<div style='position: fixed; right: 16px; top: 86px; width:420px; height:540px; z-index:100002; pointer-events:none;'>"
-            "<div style='position:absolute; bottom:8px; left:14px; right:14px; display:flex; gap:8px; pointer-events:auto;'>",
-            unsafe_allow_html=True,
-        )
-        c1, c2 = st.columns(2)
-        if c1.button("Mark all as read", key="notif_mark_all_btn"):
-            for n in st.session_state.notifications:
-                n["read"] = True
-            st.session_state.notif_read_map = {n["id"]: True for n in st.session_state.notifications}
-            st.rerun()
-        if c2.button("Close", key="notif_close_btn"):
-            st.session_state.notif_open = False
-            st.rerun()
-        st.markdown("</div></div>", unsafe_allow_html=True)
 
 # =====================
 #  RFP HISTORY
@@ -637,7 +528,7 @@ def render_rfp_history():
 #  COMMON DASHBOARD
 # =====================
 def render_common_dashboard():
-    render_topbar_right(scope="dashboard")
+    render_topbar_right(scope="dashboard", hide_support=False)
     section = st.radio(
         "Navigation",
         options=DASH_SECTIONS,
@@ -719,7 +610,7 @@ def _user_rows_df():
         })
     return pd.DataFrame(rows) if rows else pd.DataFrame(columns=["username","role","full_name","contact","status"])
 
-# Helpers gráficos (parecidos com o Builder, valores fictícios porém coerentes)
+# Helpers gráficos
 def _demo_series(days=14, base=100, volatility=15):
     now = datetime.now()
     data = []
@@ -728,22 +619,35 @@ def _demo_series(days=14, base=100, volatility=15):
         val = max(0, val + random.randint(-volatility, volatility))
         data.append({"date": (now - timedelta(days=days-i)).strftime("%Y-%m-%d"), "value": val})
     return pd.DataFrame(data)
-
 def _transactions_by_status_df():
     tx = st.session_state.transactions.copy()
     if tx.empty:
         return pd.DataFrame({"status": [], "amount": []})
     return tx.groupby("status", as_index=False)["amount"].sum().sort_values("amount", ascending=False)
 
+TAB_DESC = {
+    "Users": "Manage accounts, roles and status.",
+    "Analytics": "KPIs, trends and tables.",
+    "Disputes": "Flagged content & payment issues.",
+    "Communications": "Broadcast email/SMS to segments.",
+    "Promo/Boost": "Create and manage boost campaigns.",
+    "Data Clients": "Export anonymized datasets to B2B.",
+    "Site Charts": "Marketing-style demo charts.",
+}
+
 def render_admin_panel():
     if not _require_admin():
         return
 
     st.title("🧠 Admin Superpanel (Internal Ops)")
-    tabs = st.tabs(["👥 Users","📈 Analytics","🚩 Disputes","📣 Communications","🚀 Promo/Boost","📦 Data Clients"])
+    tabs = st.tabs([
+        "👥 Users","📈 Analytics","🚩 Disputes",
+        "📣 Communications","🚀 Promo/Boost","📦 Data Clients","📊 Site Charts"
+    ])
 
     # ---------- 1) Users ----------
     with tabs[0]:
+        st.caption(TAB_DESC["Users"])
         st.subheader("User Management")
         df = _user_rows_df()
         st.dataframe(df, use_container_width=True)
@@ -787,6 +691,7 @@ def render_admin_panel():
 
     # ---------- 2) Analytics ----------
     with tabs[1]:
+        st.caption(TAB_DESC["Analytics"])
         st.subheader("Analytics & Reporting Hub")
         tx = st.session_state.transactions.copy()
         rfps = pd.DataFrame(st.session_state.rfp_history) if st.session_state.get("rfp_history") else pd.DataFrame(columns=["submitted_at"])
@@ -828,6 +733,7 @@ def render_admin_panel():
 
     # ---------- 3) Disputes ----------
     with tabs[2]:
+        st.caption(TAB_DESC["Disputes"])
         st.subheader("Flagged Content / Disputes")
         disp = st.session_state.admin_disputes
         if not disp:
@@ -844,13 +750,10 @@ def render_admin_panel():
                                        key=f"disp-{row['id']}")
                     if new != row["status"]:
                         row["status"] = new
-            if st.button("Export disputes CSV"):
-                df_disp = pd.DataFrame(st.session_state.admin_disputes)
-                st.download_button("Download", data=df_disp.to_csv(index=False).encode("utf-8"),
-                                   file_name="disputes.csv", mime="text/csv")
 
     # ---------- 4) Communications ----------
     with tabs[3]:
+        st.caption(TAB_DESC["Communications"])
         st.subheader("Platform-Wide Communications (email/SMS)")
         seg = st.selectbox("Segment", ["All Users","All Vendors","All Venues","All NPOs/Clients"])
         subject = st.text_input("Subject")
@@ -867,6 +770,7 @@ def render_admin_panel():
 
     # ---------- 5) Promo/Boost ----------
     with tabs[4]:
+        st.caption(TAB_DESC["Promo/Boost"])
         st.subheader("Promo / Boost Campaign Manager")
         dfc = pd.DataFrame(st.session_state.promo_campaigns)
         st.dataframe(dfc, use_container_width=True)
@@ -887,6 +791,7 @@ def render_admin_panel():
 
     # ---------- 6) Data Clients ----------
     with tabs[5]:
+        st.caption(TAB_DESC["Data Clients"])
         st.subheader("Data Resale & Dashboard Clients (B2B)")
         dc = pd.DataFrame(st.session_state.data_clients)
         st.dataframe(dc, use_container_width=True)
@@ -902,6 +807,30 @@ def render_admin_panel():
             st.download_button("Download rfp_history.csv",
                                data=rfps.to_csv(index=False).encode("utf-8"),
                                file_name="rfp_history.csv", mime="text/csv")
+
+    # ---------- 7) Site Charts ----------
+    with tabs[6]:
+        st.caption(TAB_DESC["Site Charts"])
+        st.subheader("Demo Charts (marketing style)")
+
+        c1, c2 = st.columns(2)
+        with c1:
+            st.markdown("**Traffic Trend**")
+            st.line_chart(_demo_series(days=30, base=200, volatility=25).set_index("date"))
+        with c2:
+            st.markdown("**Signups / Conversions**")
+            df = pd.DataFrame({
+                "metric": ["Signups","Verified","Paying"],
+                "value": [420, 310, 120]
+            }).set_index("metric")
+            st.bar_chart(df)
+
+        st.markdown("**Category Performance**")
+        df2 = pd.DataFrame({
+            "Venue": [60, 72, 68, 80, 75],
+            "Vendors": [40, 55, 62, 70, 66],
+        }, index=[f"W{i}" for i in range(1,6)])
+        st.area_chart(df2)
 
 # =====================
 #        ROUTES
@@ -928,7 +857,8 @@ elif st.session_state.route == "signup":
     st.markdown("<div class='vip-wrap'>", unsafe_allow_html=True)
     st.header("Create your account")
     with st.form("signup_form"):
-        role = st.radio("Select your profile type", ROLE_OPTIONS + [ADMIN_ROLE], horizontal=True)
+        # (1) Admin REMOVIDO do cadastro
+        role = st.radio("Select your profile type", ROLE_OPTIONS, horizontal=True)
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
         full_name = st.text_input("Full Name")
@@ -986,7 +916,6 @@ elif st.session_state.route == "dashboard":
                 nav("login")
             if st.button("🚪 Log out"):
                 logout()
-            # Admin link
             if user.get("role") == ADMIN_ROLE:
                 st.divider()
                 if st.button("🧠 Admin Superpanel"):
@@ -1004,7 +933,8 @@ elif st.session_state.route == "rfp":
 
 elif st.session_state.route == "admin":
     st.markdown("<div class='vip-wrap'>", unsafe_allow_html=True)
-    render_topbar_right(scope="admin")
+    # (3) Admin sem suporte; sino só zera
+    render_topbar_right(scope="admin", hide_support=True)
     render_admin_panel()
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -1017,7 +947,5 @@ if st.session_state.get("_pending_nav"):
     del st.session_state["_pending_nav"]
     st.rerun()
 
-# === Float support panel ===
+# === Support only where allowed ===
 render_help_panel()
-# === Float notifications ===
-render_notif_panel()
