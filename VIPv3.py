@@ -8,7 +8,7 @@ import mimetypes
 import random
 
 # -------------------------------------------------------------
-# VIP – Landing + Auth (USERNAME) + Dashboard + Marketplace + RFP Wizard + ADMIN
+# VIP – Landing + Auth + Dashboard(Unificado: Dashboard + Admin)
 # -------------------------------------------------------------
 
 st.set_page_config(
@@ -19,24 +19,8 @@ st.set_page_config(
 )
 
 # =====================
-#   DASH MENU
-# =====================
-DASH_SECTIONS = [
-    "🔎 Search & Filter Marketplace",
-    "🗂️ RFP Submission History",
-    "💳 Transaction History",
-    "🔔 Notification Center",
-    "💬 Chat / Messaging Center",
-]
-if "dash_section" not in st.session_state or st.session_state.dash_section not in DASH_SECTIONS:
-    st.session_state.dash_section = DASH_SECTIONS[0]
-
-# =====================
 #   SESSION DEFAULTS
 # =====================
-# seção atual do admin (launcher)
-if "admin_section" not in st.session_state:
-    st.session_state.admin_section = "Users"
 if "route" not in st.session_state:
     st.session_state.route = "landing"
 if "users" not in st.session_state:
@@ -44,7 +28,29 @@ if "users" not in st.session_state:
 if "current_user" not in st.session_state:
     st.session_state.current_user = None
 
-# ---- Seeds (notifications, transactions, mail) ----
+# navegação unificada (dashboard + admin)
+DASH_SECTIONS = [
+    ("🔎 Search & Filter Marketplace", "dash_market"),
+    ("🗂️ RFP Submission History", "dash_rfp_hist"),
+    ("💳 Transaction History", "dash_tx"),
+    ("🔔 Notification Center", "dash_notifs"),
+    ("💬 Chat / Messaging Center", "dash_chat"),
+]
+ADMIN_SECTIONS = [
+    ("👥 Users", "admin_users"),
+    ("📈 Analytics", "admin_analytics"),
+    ("🚩 Disputes", "admin_disputes"),
+    ("📣 Communications", "admin_comm"),
+    ("🚀 Promo/Boost", "admin_promo"),
+    ("📦 Data Clients", "admin_clients"),
+    ("📊 Site Charts", "admin_site"),
+]
+if "main_section" not in st.session_state:
+    st.session_state.main_section = DASH_SECTIONS[0][1]  # default: marketplace
+
+# =====================
+#   SEEDS
+# =====================
 def _seed_notifications():
     return [
         {"id": 1, "title": "Payment confirmed",     "body": "Catering - $500 received.",       "ts": "2025-09-19 16:05", "ntype": "success", "read": True},
@@ -95,18 +101,11 @@ if "mail_folder" not in st.session_state:
 if "mail_thread" not in st.session_state:
     st.session_state.mail_thread = st.session_state.mail["Inbox"][0]["id"] if st.session_state.mail["Inbox"] else None
 
-# Painéis / badge
-if "help_open" not in st.session_state:
-    st.session_state.help_open = False
-if "notif_badge_cleared" not in st.session_state:
-    st.session_state.notif_badge_cleared = False
-
 # =====================
 # CONSTANTS / PATHS
 # =====================
 ROLE_OPTIONS = ["For-Profit (Client)", "Non-Profit", "Venue", "Vendor"]
 ADMIN_ROLE = "Admin"
-IMG_WIDTH = 600
 
 ROOT = Path(__file__).resolve().parent
 LOGO_PATH = ROOT / "assets" / "logo.png"
@@ -140,7 +139,7 @@ st.markdown(
 # =====================
 # HELPERS
 # =====================
-def render_centered_image(path: str, max_width_px: int = 800):
+def render_centered_image(path: str, max_width_px: int = 900):
     p = Path(path)
     if p.exists():
         data = p.read_bytes()
@@ -149,26 +148,25 @@ def render_centered_image(path: str, max_width_px: int = 800):
         st.markdown(
             f"""
             <div style="display:flex;justify-content:center;align-items:center;width:100%;margin:18px 0;">
-              <img src="data:{mime};base64,{b64}"
-                   style="max-width:{max_width_px}px;width:100%;height:auto;border-radius:6px;" />
+              <img src="data:{mime};base64,{b64}" style="max-width:{max_width_px}px;width:100%;height:auto;border-radius:6px;" />
             </div>
             """,
             unsafe_allow_html=True,
         )
     else:
         st.markdown(
-            f"""
+            """
             <div style="display:flex;justify-content:center;align-items:center;width:100%;margin:18px 0;">
               <img src="https://via.placeholder.com/1200x480?text=Venue+Intelligence+Platform"
-                   style="max-width:{max_width_px}px;width:100%;height:auto;border-radius:6px;" />
+                   style="max-width:900px;width:100%;height:auto;border-radius:6px;" />
             </div>
-            """,
-            unsafe_allow_html=True,
+            """, unsafe_allow_html=True
         )
 
 def nav(route: str):
     st.session_state["route"] = route
     st.rerun()
+
 def request_nav(route: str):
     st.session_state["route"] = route
     st.session_state["_pending_nav"] = True
@@ -187,6 +185,7 @@ def create_user(username, password, role, full_name="", contact=""):
         "status": "Active",
     }
     return True, "Account created successfully."
+
 def authenticate(username, password):
     key = (username or "").strip().lower()
     user = st.session_state.users.get(key)
@@ -196,6 +195,7 @@ def authenticate(username, password):
         return False, "Incorrect password."
     st.session_state.current_user = {"username": key, **user}
     return True, "Login successful."
+
 def logout():
     st.session_state.current_user = None
     nav("landing")
@@ -277,12 +277,8 @@ def _reset_rfp_state():
         st.session_state.pop(k, None)
     st.session_state["rfp_form_version"] = st.session_state.get("rfp_form_version", 0) + 1
 
-def render_rfp(with_topbar: bool = True, scope: str = "rfp_page"):
-    if with_topbar:
-        render_topbar_right(scope=scope, hide_support=False)
-
+def render_rfp(with_topbar: bool = True):
     st.header("📝 RFP Submission Wizard")
-
     item = st.session_state.get("selected_item")
     if item:
         st.info(
@@ -320,6 +316,7 @@ def render_rfp(with_topbar: bool = True, scope: str = "rfp_page"):
             "price": item.get('price', '') if item else "",
         })
 
+        # cria notificação + reexibe badge
         new_id = max([n["id"] for n in st.session_state.notifications] + [0]) + 1
         st.session_state.notifications.insert(0, {
             "id": new_id, "title": "RFP submitted",
@@ -327,7 +324,6 @@ def render_rfp(with_topbar: bool = True, scope: str = "rfp_page"):
             "ts": datetime.now().strftime("%Y-%m-%d %H:%M"),
             "ntype": "info", "read": False,
         })
-        # mostra badge novamente
         st.session_state.notif_badge_cleared = False
 
         st.success("✅ RFP submitted successfully!")
@@ -373,7 +369,7 @@ def render_transactions():
 # =====================
 #  NOTIFICATIONS (center)
 # =====================
-def render_notifications():
+def render_notifications_center():
     st.subheader("🔔 Notification Center")
     notifs = sorted(st.session_state.notifications, key=lambda n: n.get("ts",""), reverse=True)
     if not notifs:
@@ -436,126 +432,8 @@ def render_messaging_center():
                 st.rerun()
 
 # =====================
-#  TOP BAR (sino que apenas zera + suporte opcional)
+#  ADMIN HELPERS / DATA
 # =====================
-def render_topbar_right(scope: str = "dashboard", hide_support: bool = False):
-    left, right = st.columns([7, 3], gap="small")
-    with right:
-        bcols = st.columns(2 if not hide_support else 1, gap="small")
-
-        # NOTIFICATIONS: apenas zera
-        unread = unread_count()
-        show_badge = (unread > 0) and (not st.session_state.notif_badge_cleared)
-        notif_label = f"🔔 Notifications ({unread})" if show_badge else "🔔 Notifications"
-        if bcols[0].button(notif_label, key=f"btn_notif_{scope}", use_container_width=True):
-            # marca tudo como lido e limpa o badge, não abre painel
-            for n in st.session_state.notifications:
-                n["read"] = True
-            st.session_state.notif_badge_cleared = True
-            st.rerun()
-
-        # SUPPORT: só quando não estiver oculto
-        if not hide_support:
-            support_open = st.session_state.get("help_open", False)
-            support_label = "💬 Support" if not support_open else "💬 Hide chat"
-            if bcols[1].button(support_label, key=f"btn_support_{scope}", use_container_width=True):
-                st.session_state.help_open = not support_open
-                st.rerun()
-
-# =====================
-# Support panel (Carol) — NÃO usado no Admin
-# =====================
-HELP_WELCOME = (
-    "Welcome! I'm Carol, your virtual assistant. "
-    "I can help you find venues and vendors, draft and send RFPs, "
-    "and answer questions about your transactions. How can I help today?"
-)
-HELP_PLACEHOLDER = "Type your question here or describe what you need…"
-def render_help_panel():
-    if st.session_state.route == "admin":  # não mostrar no Admin
-        return
-    if not st.session_state.get("help_open", False):
-        return
-    st.markdown(
-        f"""
-        <div id="vip-help"
-             style="position: fixed; bottom: 24px; right: 24px; width: 380px; height: 460px;
-               background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;
-               box-shadow: 0 16px 40px rgba(0,0,0,.24); z-index: 999999; overflow: hidden;">
-          <div style="padding:12px 16px; border-bottom:1px solid #eee; font-weight:700;">
-            💬 Carol — Virtual Assistant
-          </div>
-          <div style="padding:12px 16px; height: calc(460px - 56px); overflow:auto;">
-            <p style="margin:0 0 8px 0; color:#374151;"><i>{HELP_WELCOME}</i></p>
-            <div style="margin-top:10px; padding:12px; background:#f3f4f6; border-radius:8px;">
-              {HELP_PLACEHOLDER}
-            </div>
-          </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-# =====================
-#  RFP HISTORY
-# =====================
-def render_rfp_history():
-    st.subheader("🗂️ RFP Submission History")
-    rows = st.session_state.get("rfp_history", [])
-    if not rows:
-        st.info("No RFP submissions yet.")
-        return
-    df = pd.DataFrame(rows)
-
-    c1, c2 = st.columns([2,1])
-    with c1:
-        q = st.text_input("Search (title / target / city)")
-    with c2:
-        date_from = st.date_input("From date", value=None)
-
-    if q:
-        ql = q.lower()
-        df = df[df.apply(lambda r:
-                         ql in str(r.get("title","")).lower() or
-                         ql in str(r.get("target_name","")).lower() or
-                         ql in str(r.get("target_city","")).lower(), axis=1)]
-    if date_from:
-        df = df[pd.to_datetime(df["submitted_at"]) >= pd.to_datetime(date_from)]
-    df = df.sort_values(by="submitted_at", ascending=False)
-
-    cols = ["submitted_at","title","target_name","target_type","target_city","budget","target_date","price","target_contact"]
-    cols = [c for c in cols if c in df.columns]
-    st.dataframe(df[cols].reset_index(drop=True), use_container_width=True)
-
-# =====================
-#  COMMON DASHBOARD
-# =====================
-def render_common_dashboard():
-    render_topbar_right(scope="dashboard", hide_support=False)
-    section = st.radio(
-        "Navigation",
-        options=DASH_SECTIONS,
-        horizontal=True,
-        label_visibility="collapsed",
-        key="dash_section",
-    )
-    st.write("")
-    if section == "🔎 Search & Filter Marketplace":
-        render_marketplace()
-    elif section == "🗂️ RFP Submission History":
-        render_rfp_history()
-    elif section == "💳 Transaction History":
-        render_transactions()
-    elif section == "🔔 Notification Center":
-        render_notifications()
-    elif section == "💬 Chat / Messaging Center":
-        render_messaging_center()
-
-# =====================
-#  -------- ADMIN --------
-# =====================
-
-# Seeds Admin
 def _seed_admin_disputes():
     return [
         {"id": 9001, "created":"2025-09-22 11:10", "type":"Payment", "from":"Helix 238",
@@ -573,8 +451,6 @@ def _seed_promo_campaigns():
         {"id":7001, "name":"October Spotlight", "segment":"Venues", "budget":200, "status":"Active"},
         {"id":7002, "name":"Boost – Photography", "segment":"Vendors (Photography)", "budget":150, "status":"Paused"},
     ]
-
-# Admin state
 if "admin_disputes" not in st.session_state:
     st.session_state.admin_disputes = _seed_admin_disputes()
 if "broadcast_log" not in st.session_state:
@@ -594,277 +470,231 @@ if "users" in st.session_state and "admin" not in st.session_state.users:
         "contact":"admin@vip.local", "role": ADMIN_ROLE, "status": "Active"
     }
 
-def _require_admin():
-    u = st.session_state.get("current_user")
-    if not u or u.get("role") != ADMIN_ROLE:
-        st.error("Admin access required.")
-        return False
-    return True
+TAB_DESC = {
+    # dashboard
+    "dash_market": "Browse and filter venues/vendors.",
+    "dash_rfp_hist": "Your submitted RFPs.",
+    "dash_tx": "Payments and order history.",
+    "dash_notifs": "All platform notifications.",
+    "dash_chat": "Threaded messages with venues/vendors.",
+    # admin
+    "admin_users": "Manage accounts, roles and status.",
+    "admin_analytics": "KPIs, trends and tables.",
+    "admin_disputes": "Flagged content & payment issues.",
+    "admin_comm": "Broadcast email/SMS to segments.",
+    "admin_promo": "Create and manage boost campaigns.",
+    "admin_clients": "Export anonymized datasets to B2B.",
+    "admin_site": "Marketing-style demo charts.",
+}
 
-def _user_rows_df():
-    rows = []
-    for uname, info in st.session_state.users.items():
-        rows.append({
-            "username": uname,
-            "role": info.get("role"),
-            "full_name": info.get("full_name",""),
-            "contact": info.get("contact",""),
-            "status": info.get("status","Active"),
+# renderizadores das seções admin
+def admin_render_users():
+    st.subheader("User Management")
+    df = pd.DataFrame([
+        {"username": u, "role": info.get("role"), "full_name": info.get("full_name",""),
+         "contact": info.get("contact",""), "status": info.get("status","Active")}
+        for u, info in st.session_state.users.items()
+    ])
+    st.dataframe(df, use_container_width=True)
+
+    c1, c2, c3, c4 = st.columns(4)
+    with c1:
+        st.markdown("**Approve / Suspend**")
+        target_user = st.selectbox("User", df["username"].tolist() if not df.empty else ["—"])
+        new_status = st.selectbox("Set status", ["Active","Suspended"])
+        if st.button("Apply status"):
+            if target_user in st.session_state.users:
+                st.session_state.users[target_user]["status"] = new_status
+                st.success(f"{target_user} → {new_status}")
+                st.rerun()
+    with c2:
+        st.markdown("**Change role**")
+        role_user = st.selectbox("User ", df["username"].tolist() if not df.empty else ["—"], key="role_user")
+        new_role = st.selectbox("Role", ROLE_OPTIONS + [ADMIN_ROLE], index=0)
+        if st.button("Apply role"):
+            if role_user in st.session_state.users:
+                st.session_state.users[role_user]["role"] = new_role
+                st.success(f"{role_user} → role {new_role}")
+                st.rerun()
+    with c3:
+        st.markdown("**Reset password**")
+        pw_user = st.selectbox("User  ", df["username"].tolist() if not df.empty else ["—"], key="pw_user")
+        new_pw = st.text_input("New password", type="password")
+        if st.button("Reset"):
+            if pw_user in st.session_state.users:
+                st.session_state.users[pw_user]["password"] = new_pw or ""
+                st.success(f"Password reset for {pw_user}")
+    with c4:
+        st.markdown("**Create user (quick)**")
+        u = st.text_input("Username")
+        p = st.text_input("Password", type="password")
+        r = st.selectbox("Role  ", ROLE_OPTIONS + [ADMIN_ROLE], key="new_role_sel")
+        if st.button("Create user"):
+            ok, msg = create_user(u, p, r, full_name=u, contact=f"{u}@example.com")
+            st.success(msg) if ok else st.error(msg)
+            if ok: st.rerun()
+
+def admin_render_analytics():
+    st.subheader("Analytics & Reporting Hub")
+    tx = st.session_state.transactions.copy()
+    rfps = pd.DataFrame(st.session_state.rfp_history) if st.session_state.get("rfp_history") else pd.DataFrame(columns=["submitted_at"])
+    total_rev = int(tx.loc[tx["status"]=="Completed","amount"].sum()) if not tx.empty else 0
+    pending = int(tx.loc[tx["status"]=="Pending","amount"].sum()) if not tx.empty else 0
+    completed = int((tx["status"]=="Completed").sum()) if not tx.empty else 0
+
+    k1, k2, k3, k4 = st.columns(4)
+    with k1: st.markdown(f"<div class='kpi'><h4>Revenue (Completed)</h4><div class='v'>${total_rev:,.0f}</div></div>", unsafe_allow_html=True)
+    with k2: st.markdown(f"<div class='kpi'><h4>Pending Payments</h4><div class='v'>${pending:,.0f}</div></div>", unsafe_allow_html=True)
+    with k3: st.markdown(f"<div class='kpi'><h4>Completed Orders</h4><div class='v'>{completed}</div></div>", unsafe_allow_html=True)
+    with k4:
+        mrr = total_rev // 3 if total_rev else 0
+        st.markdown(f"<div class='kpi'><h4>MRR (est.)</h4><div class='v'>${mrr:,.0f}</div></div>", unsafe_allow_html=True)
+
+    cA, cB = st.columns(2)
+    with cA:
+        st.markdown("##### Revenue Trend (Demo)")
+        df_line = _demo_series(days=20, base=120, volatility=18)
+        st.line_chart(df_line.set_index("date"))
+    with cB:
+        st.markdown("##### Transactions by Status")
+        if tx.empty:
+            st.info("No transactions.")
+        else:
+            by_status = tx.groupby("status", as_index=False)["amount"].sum().sort_values("amount", ascending=False)
+            st.bar_chart(by_status.set_index("status"))
+
+    st.markdown("<div class='vip-card'>", unsafe_allow_html=True)
+    colA, colB = st.columns(2)
+    with colA:
+        st.markdown("**Transactions (latest)**")
+        st.dataframe(tx.sort_values("date", ascending=False).head(25), use_container_width=True, height=260)
+    with colB:
+        st.markdown("**RFPs (last 30)**")
+        st.dataframe(rfps.sort_values("submitted_at", ascending=False).head(30), use_container_width=True, height=260)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+def admin_render_disputes():
+    st.subheader("Flagged Content / Disputes")
+    disp = st.session_state.admin_disputes
+    if not disp:
+        st.info("No disputes.")
+        return
+    for row in disp:
+        with st.container(border=True):
+            c1, c2 = st.columns([6,2])
+            c1.markdown(f"**#{row['id']}** • {row['type']} • {row['summary']}  \n"
+                        f"From: {row['from']}  →  Against: {row['against']}  \n"
+                        f"<span class='muted'>{row['created']}</span>", unsafe_allow_html=True)
+            new = c2.selectbox("Status", ["Open","Under review","Resolved","Rejected"],
+                               index=["Open","Under review","Resolved","Rejected"].index(row["status"]),
+                               key=f"disp-{row['id']}")
+            if new != row["status"]:
+                row["status"] = new
+
+def admin_render_comm():
+    st.subheader("Platform-Wide Communications (email/SMS)")
+    seg = st.selectbox("Segment", ["All Users","All Vendors","All Venues","All NPOs/Clients"])
+    subject = st.text_input("Subject")
+    body = st.text_area("Message")
+    via = st.selectbox("Channel", ["Email","SMS","Both"])
+    if st.button("Send broadcast"):
+        st.session_state.broadcast_log.insert(0, {
+            "sent_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "segment": seg, "subject": subject, "body": body, "via": via
         })
-    return pd.DataFrame(rows) if rows else pd.DataFrame(columns=["username","role","full_name","contact","status"])
+        st.success("Broadcast queued (demo).")
+    st.markdown("**History**")
+    st.dataframe(pd.DataFrame(st.session_state.broadcast_log), use_container_width=True, height=240)
 
-# Helpers gráficos
+def admin_render_promo():
+    st.subheader("Promo / Boost Campaign Manager")
+    dfc = pd.DataFrame(st.session_state.promo_campaigns)
+    st.dataframe(dfc, use_container_width=True)
+    c1, c2, c3 = st.columns([2,1,1])
+    with c1:
+        name = st.text_input("Campaign name")
+    with c2:
+        seg = st.text_input("Segment (label)")
+    with c3:
+        budget = st.number_input("Budget", min_value=0, value=100)
+    st.write("")
+    if st.button("Create campaign"):
+        new_id = max([c["id"] for c in st.session_state.promo_campaigns]+[7000]) + 1
+        st.session_state.promo_campaigns.append({"id":new_id,"name":name or f"Campaign {new_id}",
+                                                 "segment":seg or "General","budget":int(budget),"status":"Active"})
+        st.success("Campaign created.")
+        st.rerun()
+
+def admin_render_clients():
+    st.subheader("Data Resale & Dashboard Clients (B2B)")
+    dc = pd.DataFrame(st.session_state.data_clients)
+    st.dataframe(dc, use_container_width=True)
+    st.markdown("**Export anonymized datasets**")
+    col1, col2 = st.columns(2)
+    with col1:
+        tx = st.session_state.transactions.copy()
+        st.download_button("Download transactions.csv",
+                           data=tx.to_csv(index=False).encode("utf-8"),
+                           file_name="transactions.csv", mime="text/csv")
+    with col2:
+        rfps = pd.DataFrame(st.session_state.rfp_history) if st.session_state.get("rfp_history") else pd.DataFrame()
+        st.download_button("Download rfp_history.csv",
+                           data=rfps.to_csv(index=False).encode("utf-8"),
+                           file_name="rfp_history.csv", mime="text/csv")
+
+def admin_render_site():
+    st.subheader("Demo Charts (marketing style)")
+    c1, c2 = st.columns(2)
+    with c1:
+        st.markdown("**Traffic Trend**")
+        st.line_chart(_demo_series(days=30, base=200, volatility=25).set_index("date"))
+    with c2:
+        st.markdown("**Signups / Conversions**")
+        df = pd.DataFrame({"metric":["Signups","Verified","Paying"],"value":[420,310,120]}).set_index("metric")
+        st.bar_chart(df)
+    st.markdown("**Category Performance**")
+    df2 = pd.DataFrame({"Venue":[60,72,68,80,75],"Vendors":[40,55,62,70,66]}, index=[f"W{i}" for i in range(1,6)])
+    st.area_chart(df2)
+
+# util de série demo
 def _demo_series(days=14, base=100, volatility=15):
     now = datetime.now()
-    data = []
-    val = base
+    data, val = [], base
     for i in range(days):
         val = max(0, val + random.randint(-volatility, volatility))
         data.append({"date": (now - timedelta(days=days-i)).strftime("%Y-%m-%d"), "value": val})
     return pd.DataFrame(data)
-def _transactions_by_status_df():
-    tx = st.session_state.transactions.copy()
-    if tx.empty:
-        return pd.DataFrame({"status": [], "amount": []})
-    return tx.groupby("status", as_index=False)["amount"].sum().sort_values("amount", ascending=False)
 
-TAB_DESC = {
-    "Users": "Manage accounts, roles and status.",
-    "Analytics": "KPIs, trends and tables.",
-    "Disputes": "Flagged content & payment issues.",
-    "Communications": "Broadcast email/SMS to segments.",
-    "Promo/Boost": "Create and manage boost campaigns.",
-    "Data Clients": "Export anonymized datasets to B2B.",
-    "Site Charts": "Marketing-style demo charts.",
-}
+# =====================
+#  NAV BUTTONS (unificados)
+# =====================
+def render_unified_nav(is_admin: bool):
+    """Linha 1: Dashboard | Linha 2: Admin (se admin)."""
+    st.markdown("#### App Sections")
 
-TAB_DESC = {
-    "Users": "Manage accounts, roles and status.",
-    "Analytics": "KPIs, trends and tables.",
-    "Disputes": "Flagged content & payment issues.",
-    "Communications": "Broadcast email/SMS to segments.",
-    "Promo/Boost": "Create and manage boost campaigns.",
-    "Data Clients": "Export anonymized datasets to B2B.",
-    "Site Charts": "Marketing-style demo charts.",
-}
-
-def _admin_nav_buttons():
-    """Launcher de botões para trocar de seção."""
-    labels = [
-        ("👥 Users","Users"),
-        ("📈 Analytics","Analytics"),
-        ("🚩 Disputes","Disputes"),
-        ("📣 Communications","Communications"),
-        ("🚀 Promo/Boost","Promo/Boost"),
-        ("📦 Data Clients","Data Clients"),
-        ("📊 Site Charts","Site Charts"),
-    ]
-    cols = st.columns(7)
-    for i,(lbl,key) in enumerate(labels):
-        active = (st.session_state.admin_section == key)
-        style = "border:2px solid #ef4444;" if active else "border:1px solid #e5e7eb;"
-        if cols[i].button(lbl, use_container_width=True, key=f"adminbtn-{key}"):
-            st.session_state.admin_section = key
+    # linha dashboard
+    cols = st.columns(len(DASH_SECTIONS))
+    for i, (label, key) in enumerate(DASH_SECTIONS):
+        active = (st.session_state.main_section == key)
+        if cols[i].button(label, use_container_width=True, key=f"nav-{key}"):
+            st.session_state.main_section = key
             st.rerun()
-        cols[i].markdown(f"<div style='text-align:center;font-size:12px;color:#6b7280;margin-top:2px;{''}'></div>", unsafe_allow_html=True)
+        if active:
+            cols[i].caption("active")
 
-def render_admin_panel():
-    if not _require_admin():
-        return
-
-    # Top bar do Admin: Back + sino que só zera
-    top_l, top_r = st.columns([6,6])
-    with top_l:
-        st.title("🧠 Admin Superpanel (Internal Ops)")
-    with top_r:
-        c1, c2 = st.columns([1,1])
-        if c1.button("↩ Back to Dashboard", use_container_width=True):
-            nav("dashboard")
-        # sino apenas zera
-        unread = unread_count()
-        notif_label = f"🔔 Notifications ({unread})" if unread and not st.session_state.get("notif_badge_cleared") else "🔔 Notifications"
-        if c2.button(notif_label, use_container_width=True, key="admin-notif-reset"):
-            for n in st.session_state.notifications:
-                n["read"] = True
-            st.session_state.notif_badge_cleared = True
-            st.rerun()
-
-    # Launcher de seções
-    st.markdown("#### Admin Sections")
-    _admin_nav_buttons()
+    # linha admin (só para admin)
+    if is_admin:
+        st.write("")
+        cols2 = st.columns(len(ADMIN_SECTIONS))
+        for i, (label, key) in enumerate(ADMIN_SECTIONS):
+            active = (st.session_state.main_section == key)
+            if cols2[i].button(label, use_container_width=True, key=f"nav-{key}"):
+                st.session_state.main_section = key
+                st.rerun()
+            if active:
+                cols2[i].caption("active")
     st.divider()
 
-    # Descrição curta da seção ativa
-    sec = st.session_state.admin_section
-    st.caption(TAB_DESC.get(sec, ""))
-
-    # ========== Render de cada seção ==========
-    if sec == "Users":
-        st.subheader("User Management")
-        df = _user_rows_df()
-        st.dataframe(df, use_container_width=True)
-
-        c1, c2, c3, c4 = st.columns(4)
-        with c1:
-            st.markdown("**Approve / Suspend**")
-            target_user = st.selectbox("User", df["username"].tolist() if not df.empty else ["—"])
-            new_status = st.selectbox("Set status", ["Active","Suspended"])
-            if st.button("Apply status"):
-                if target_user in st.session_state.users:
-                    st.session_state.users[target_user]["status"] = new_status
-                    st.success(f"{target_user} → {new_status}")
-                    st.rerun()
-        with c2:
-            st.markdown("**Change role**")
-            role_user = st.selectbox("User ", df["username"].tolist() if not df.empty else ["—"], key="role_user")
-            new_role = st.selectbox("Role", ROLE_OPTIONS + [ADMIN_ROLE], index=0)
-            if st.button("Apply role"):
-                if role_user in st.session_state.users:
-                    st.session_state.users[role_user]["role"] = new_role
-                    st.success(f"{role_user} → role {new_role}")
-                    st.rerun()
-        with c3:
-            st.markdown("**Reset password**")
-            pw_user = st.selectbox("User  ", df["username"].tolist() if not df.empty else ["—"], key="pw_user")
-            new_pw = st.text_input("New password", type="password")
-            if st.button("Reset"):
-                if pw_user in st.session_state.users:
-                    st.session_state.users[pw_user]["password"] = new_pw or ""
-                    st.success(f"Password reset for {pw_user}")
-        with c4:
-            st.markdown("**Create user (quick)**")
-            u = st.text_input("Username")
-            p = st.text_input("Password", type="password")
-            r = st.selectbox("Role  ", ROLE_OPTIONS + [ADMIN_ROLE], key="new_role_sel")
-            if st.button("Create user"):
-                ok, msg = create_user(u, p, r, full_name=u, contact=f"{u}@example.com")
-                st.success(msg) if ok else st.error(msg)
-                if ok: st.rerun()
-
-    elif sec == "Analytics":
-        st.subheader("Analytics & Reporting Hub")
-        tx = st.session_state.transactions.copy()
-        rfps = pd.DataFrame(st.session_state.rfp_history) if st.session_state.get("rfp_history") else pd.DataFrame(columns=["submitted_at"])
-
-        total_rev = int(tx.loc[tx["status"]=="Completed","amount"].sum()) if not tx.empty else 0
-        pending = int(tx.loc[tx["status"]=="Pending","amount"].sum()) if not tx.empty else 0
-        completed = int((tx["status"]=="Completed").sum()) if not tx.empty else 0
-
-        k1, k2, k3, k4 = st.columns(4)
-        with k1:
-            st.markdown(f"<div class='kpi'><h4>Revenue (Completed)</h4><div class='v'>${total_rev:,.0f}</div></div>", unsafe_allow_html=True)
-        with k2:
-            st.markdown(f"<div class='kpi'><h4>Pending Payments</h4><div class='v'>${pending:,.0f}</div></div>", unsafe_allow_html=True)
-        with k3:
-            st.markdown(f"<div class='kpi'><h4>Completed Orders</h4><div class='v'>{completed}</div></div>", unsafe_allow_html=True)
-        with k4:
-            mrr = total_rev // 3 if total_rev else 0
-            st.markdown(f"<div class='kpi'><h4>MRR (est.)</h4><div class='v'>${mrr:,.0f}</div></div>", unsafe_allow_html=True)
-
-        cA, cB = st.columns(2)
-        with cA:
-            st.markdown("##### Revenue Trend (Demo)")
-            df_line = _demo_series(days=20, base=120, volatility=18)
-            st.line_chart(df_line.set_index("date"))
-        with cB:
-            st.markdown("##### Transactions by Status")
-            by_status = _transactions_by_status_df()
-            st.bar_chart(by_status.set_index("status"))
-
-        st.markdown("<div class='vip-card'>", unsafe_allow_html=True)
-        colA, colB = st.columns(2)
-        with colA:
-            st.markdown("**Transactions (latest)**")
-            st.dataframe(tx.sort_values("date", ascending=False).head(25), use_container_width=True, height=260)
-        with colB:
-            st.markdown("**RFPs (last 30)**")
-            st.dataframe(rfps.sort_values("submitted_at", ascending=False).head(30), use_container_width=True, height=260)
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    elif sec == "Disputes":
-        st.subheader("Flagged Content / Disputes")
-        disp = st.session_state.admin_disputes
-        if not disp:
-            st.info("No disputes.")
-        else:
-            for row in disp:
-                with st.container(border=True):
-                    c1, c2 = st.columns([6,2])
-                    c1.markdown(f"**#{row['id']}** • {row['type']} • {row['summary']}  \n"
-                                f"From: {row['from']}  →  Against: {row['against']}  \n"
-                                f"<span class='muted'>{row['created']}</span>", unsafe_allow_html=True)
-                    new = c2.selectbox("Status", ["Open","Under review","Resolved","Rejected"],
-                                       index=["Open","Under review","Resolved","Rejected"].index(row["status"]),
-                                       key=f"disp-{row['id']}")
-                    if new != row["status"]:
-                        row["status"] = new
-
-    elif sec == "Communications":
-        st.subheader("Platform-Wide Communications (email/SMS)")
-        seg = st.selectbox("Segment", ["All Users","All Vendors","All Venues","All NPOs/Clients"])
-        subject = st.text_input("Subject")
-        body = st.text_area("Message")
-        via = st.selectbox("Channel", ["Email","SMS","Both"])
-        if st.button("Send broadcast"):
-            st.session_state.broadcast_log.insert(0, {
-                "sent_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
-                "segment": seg, "subject": subject, "body": body, "via": via
-            })
-            st.success("Broadcast queued (demo).")
-        st.markdown("**History**")
-        st.dataframe(pd.DataFrame(st.session_state.broadcast_log), use_container_width=True, height=240)
-
-    elif sec == "Promo/Boost":
-        st.subheader("Promo / Boost Campaign Manager")
-        dfc = pd.DataFrame(st.session_state.promo_campaigns)
-        st.dataframe(dfc, use_container_width=True)
-        c1, c2, c3 = st.columns([2,1,1])
-        with c1:
-            name = st.text_input("Campaign name")
-        with c2:
-            seg = st.text_input("Segment (label)")
-        with c3:
-            budget = st.number_input("Budget", min_value=0, value=100)
-        st.write("")
-        if st.button("Create campaign"):
-            new_id = max([c["id"] for c in st.session_state.promo_campaigns]+[7000]) + 1
-            st.session_state.promo_campaigns.append({
-                "id":new_id,"name":name or f"Campaign {new_id}",
-                "segment":seg or "General","budget":int(budget),"status":"Active"
-            })
-            st.success("Campaign created.")
-            st.rerun()
-
-    elif sec == "Data Clients":
-        st.subheader("Data Resale & Dashboard Clients (B2B)")
-        dc = pd.DataFrame(st.session_state.data_clients)
-        st.dataframe(dc, use_container_width=True)
-        st.markdown("**Export anonymized datasets**")
-        col1, col2 = st.columns(2)
-        with col1:
-            tx = st.session_state.transactions.copy()
-            st.download_button("Download transactions.csv",
-                               data=tx.to_csv(index=False).encode("utf-8"),
-                               file_name="transactions.csv", mime="text/csv")
-        with col2:
-            rfps = pd.DataFrame(st.session_state.rfp_history) if st.session_state.get("rfp_history") else pd.DataFrame()
-            st.download_button("Download rfp_history.csv",
-                               data=rfps.to_csv(index=False).encode("utf-8"),
-                               file_name="rfp_history.csv", mime="text/csv")
-
-    elif sec == "Site Charts":
-        st.subheader("Demo Charts (marketing style)")
-        c1, c2 = st.columns(2)
-        with c1:
-            st.markdown("**Traffic Trend**")
-            st.line_chart(_demo_series(days=30, base=200, volatility=25).set_index("date"))
-        with c2:
-            st.markdown("**Signups / Conversions**")
-            df = pd.DataFrame({"metric":["Signups","Verified","Paying"],"value":[420,310,120]}).set_index("metric")
-            st.bar_chart(df)
-        st.markdown("**Category Performance**")
-        df2 = pd.DataFrame({"Venue":[60,72,68,80,75],"Vendors":[40,55,62,70,66]}, index=[f"W{i}" for i in range(1,6)])
-        st.area_chart(df2)
 # =====================
 #        ROUTES
 # =====================
@@ -873,7 +703,7 @@ if st.session_state.route == "landing":
     st.markdown("<span class='vip-badge'>🤝 FreeFuse × Sophist</span>", unsafe_allow_html=True)
     st.markdown("<div class='vip-title'>Venue Intelligence Platform</div>", unsafe_allow_html=True)
     st.markdown("<div class='vip-sub'>The operating system for nonprofit events — plan, book, and measure impact.</div>", unsafe_allow_html=True)
-    render_centered_image(LOGO_PATH, max_width_px=900)
+    render_centered_image(LOGO_PATH)
     st.markdown("<div class='vip-ctas'>", unsafe_allow_html=True)
     c1, c2 = st.columns([1, 1])
     with c1:
@@ -890,8 +720,7 @@ elif st.session_state.route == "signup":
     st.markdown("<div class='vip-wrap'>", unsafe_allow_html=True)
     st.header("Create your account")
     with st.form("signup_form"):
-        # (1) Admin REMOVIDO do cadastro
-        role = st.radio("Select your profile type", ROLE_OPTIONS, horizontal=True)
+        role = st.radio("Select your profile type", ROLE_OPTIONS, horizontal=True)  # sem Admin aqui
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
         full_name = st.text_input("Full Name")
@@ -938,6 +767,7 @@ elif st.session_state.route == "dashboard":
         if st.button("Go to Login"):
             nav("login")
     else:
+        # ======= TOP BAR: conta + único sino (só zera) =======
         with st.sidebar:
             st.markdown("### Account")
             st.write(f"**User:** {user['username']}")
@@ -949,26 +779,62 @@ elif st.session_state.route == "dashboard":
                 nav("login")
             if st.button("🚪 Log out"):
                 logout()
-            if user.get("role") == ADMIN_ROLE:
-                st.divider()
-                if st.button("🧠 Admin Superpanel"):
-                    nav("admin")
 
-        st.markdown("### Dashboard")
-        st.caption(f"Profile: **{user['role']}**")
-        render_common_dashboard()
+        top_l, top_r = st.columns([8,4])
+        with top_l:
+            st.markdown("### Dashboard")
+            st.caption(f"Profile: **{user['role']}**")
+        with top_r:
+            c1, = st.columns(1)
+            unread = unread_count()
+            show_badge = (unread > 0) and (not st.session_state.get("notif_badge_cleared", False))
+            notif_label = f"🔔 Notifications ({unread})" if show_badge else "🔔 Notifications"
+            if c1.button(notif_label, use_container_width=True):
+                for n in st.session_state.notifications:
+                    n["read"] = True
+                st.session_state.notif_badge_cleared = True
+                st.rerun()
+
+        # ======= NAV UNIFICADA =======
+        is_admin = (user.get("role") == ADMIN_ROLE)
+        render_unified_nav(is_admin)
+
+        # ======= DESCRIÇÃO CURTA =======
+        st.caption(TAB_DESC.get(st.session_state.main_section, ""))
+
+        # ======= RENDER DA SEÇÃO ATIVA =======
+        key = st.session_state.main_section
+        # dashboard
+        if key == "dash_market":            render_marketplace()
+        elif key == "dash_rfp_hist":        # histórico de RFP
+            st.subheader("🗂️ RFP Submission History")
+            rows = st.session_state.get("rfp_history", [])
+            if not rows:
+                st.info("No RFP submissions yet.")
+            else:
+                df = pd.DataFrame(rows).sort_values("submitted_at", ascending=False)
+                cols = ["submitted_at","title","target_name","target_type","target_city","budget","target_date","price","target_contact"]
+                cols = [c for c in cols if c in df.columns]
+                st.dataframe(df[cols].reset_index(drop=True), use_container_width=True)
+        elif key == "dash_tx":              render_transactions()
+        elif key == "dash_notifs":          render_notifications_center()
+        elif key == "dash_chat":            render_messaging_center()
+        # admin (somente se admin)
+        elif is_admin and key == "admin_users":       admin_render_users()
+        elif is_admin and key == "admin_analytics":   admin_render_analytics()
+        elif is_admin and key == "admin_disputes":    admin_render_disputes()
+        elif is_admin and key == "admin_comm":        admin_render_comm()
+        elif is_admin and key == "admin_promo":       admin_render_promo()
+        elif is_admin and key == "admin_clients":     admin_render_clients()
+        elif is_admin and key == "admin_site":        admin_render_site()
+        else:
+            st.info("This section is available to Admins.")
+
     st.markdown("</div>", unsafe_allow_html=True)
 
 elif st.session_state.route == "rfp":
     st.markdown("<div class='vip-wrap'>", unsafe_allow_html=True)
-    render_rfp(with_topbar=True, scope="rfp_page")
-    st.markdown("</div>", unsafe_allow_html=True)
-
-elif st.session_state.route == "admin":
-    st.markdown("<div class='vip-wrap'>", unsafe_allow_html=True)
-    # (3) Admin sem suporte; sino só zera
-    render_topbar_right(scope="admin", hide_support=True)
-    render_admin_panel()
+    render_rfp(with_topbar=False)
     st.markdown("</div>", unsafe_allow_html=True)
 
 else:
@@ -979,7 +845,3 @@ else:
 if st.session_state.get("_pending_nav"):
     del st.session_state["_pending_nav"]
     st.rerun()
-
-# === Support only where allowed ===
-render_help_panel()
-
